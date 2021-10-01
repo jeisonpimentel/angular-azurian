@@ -1,27 +1,17 @@
-# PruebaAzurianApp
+# Notas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+Este proyecto fue desarrollado con Angular Versión: 12.1.1, una vez descargado en el computador donde se hara el deploy, por favor ejecutar el siguiente comando:
+- npm install (Esto para descargar todos los modulos nuevamente)
 
-## Development server
+Una vez finalizada la instalación ya se puede realizar la subida del servidor, utilizando el comando:
+- ng serve -o
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Se utilizo Angular Material y NgPrime para darle estilo a la pagina, el mismo cuenta con 3 vistas:
 
-## Code scaffolding
+1. Donde se muestra el listado de todos los clientes, desde ese listado se puede eliminar de ser necesario.
+2. Creación de nuevos clientes
+3. Busqueda y edición de los clientes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Quedo atento ante cualquier duda,
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Saludos Cordiales. 
