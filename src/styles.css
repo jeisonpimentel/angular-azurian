@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    height: 100%;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.container {
+    margin: 15px;
+}
+
+table {
+    width: 100%;
+}
+
+.customIconSize {
+    font-size: 32px;
+    height: 32px ;
+    width: 32px ;
+}
+
+.new-button {
+    border: none;
+    outline: none;
+    background: none;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

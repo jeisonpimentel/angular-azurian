@@ -1,0 +1,47 @@
+
+<div class="container">
+    <h2>Listado de clientes</h2>
+
+    <table class="table table-bordered py-4">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Fecha Nacimiento</th>
+                <th>Región</th>
+                <th>Comuna</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes">
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.apellidoPaterno }} {{ cliente.apellidoMaterno }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.fechaNacimiento }}</td>
+                <td>{{ cliente.comuna?.region?.nombre }}</td>
+                <td>{{ cliente.comuna?.nombre }}</td>
+                <td>
+                    <button class="new-button" 
+                            (click)="confirm(cliente, $event )">
+                        <mat-icon class="customIconSize" color="warn">delete</mat-icon>
+                    </button>    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <mat-paginator [length]="totalRegistros"
+                [pageSize]="totalPorPagina"
+                [pageIndex]="paginaActual"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="paginar( $event )"
+                showFirstLastButtons>
+    </mat-paginator>
+</div>
+
+<p-toast></p-toast>
+<p-confirmPopup></p-confirmPopup>

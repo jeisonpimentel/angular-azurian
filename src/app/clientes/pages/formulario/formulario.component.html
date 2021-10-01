@@ -1,0 +1,115 @@
+<h1>
+    {{ (cliente.id) ? 'Actualizar Cliente' : 'Nuevo Cliente' }} 
+     
+    <small>{{ cliente.nombre }}</small>
+</h1>
+
+<div 
+    class="container"
+    fxLayout="row" 
+     fxLayoutGap="40px"
+     fxLayout.xs="column">
+
+     
+
+    <div fxFlex="50" fxLayout="column">
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Nombre Completo</mat-label>
+            <input matInput
+                   type="text"
+                   [(ngModel)]="cliente.nombre"
+                   required>
+        </mat-form-field>  
+
+        <div fxLayout="row" 
+             fxLayoutGap="20px"
+             fxLayout.xs="column">
+
+            <mat-form-field fxFlex="100"  fxLayout.xs="column">
+                <mat-label>Apellido Paterno</mat-label>
+                <input matInput
+                       type="text"
+                       [(ngModel)]="cliente.apellidoPaterno"
+                       required>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="100">
+                <mat-label>Apellido Materno</mat-label>
+                <input matInput
+                       type="text"
+                       [(ngModel)]="cliente.apellidoMaterno"
+                       required>
+            </mat-form-field>   
+        </div>  
+
+        <div fxLayout="row" 
+             fxLayoutGap="20px"
+             fxLayout.xs="column">
+
+            <mat-form-field fxFlex="100"  fxLayout.xs="column">
+                <mat-label>Email</mat-label>
+                <input matInput
+                        type="text"
+                        [(ngModel)]="cliente.email"
+                        required email>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                 <input [(ngModel)]="cliente.fechaNacimiento"
+                        required
+                        matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div> 
+
+        <div fxLayout="row" 
+             fxLayoutGap="20px"
+             fxLayout.xs="column">
+
+             <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+                <mat-label>Seleccione Región</mat-label>
+                <mat-select [(ngModel)]="regionSeleccionada"
+                            name="regionSeleccionada"
+                            #region
+                            (selectionChange)="onSelect(region.value)"
+                            [compareWith]="compararRegion"
+                            required>
+                  <mat-option *ngFor="let region of regiones" [value]="region">
+                    {{ region.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+                <mat-label>Seleccione Comuna</mat-label>
+                <mat-select [(ngModel)]="cliente.comuna" name="comunas" 
+                            #comuna="ngModel"
+                            required>
+                  <mat-option *ngFor="let comuna of comunas" [value]="comuna">
+                    {{ comuna.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div> 
+
+
+
+        <br>
+
+        <div class="row">
+            <button class="btn btn-block btn-primary"
+                    (click)="crearCliente()">
+                <mat-icon>edit</mat-icon>
+                {{ (cliente.id) ? 'Actualizar' : 'Crear' }}
+            </button>
+            <span class="spacer"></span>
+        </div>
+    </div>
+
+    <div fxFlex="50">
+        <img src="../../../../assets/no-image.png">
+    </div>
+</div>

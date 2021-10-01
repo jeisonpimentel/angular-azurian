@@ -1,0 +1,57 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="side">
+        <mat-toolbar color="primary">
+
+            <button mat-icon-button
+                    (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+
+            <span>Menú</span>
+
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <a routerLink="./crear-cliente"
+               mat-list-item
+               (click)="sidenav.toggle()">
+               <mat-icon mat-list-icon>add</mat-icon>
+               <span>Agregar Cliente</span>
+            </a>
+    
+            <a routerLink="./listado-clientes"
+               mat-list-item
+               (click)="sidenav.toggle()">
+               <mat-icon mat-list-icon>label</mat-icon>
+               <span>Listado de Clientes</span>
+            </a>
+
+            <a routerLink="./buscar-cliente"
+               mat-list-item
+               (click)="sidenav.toggle()">
+               <mat-icon mat-list-icon>search</mat-icon>
+               <span>Buscar Cliente</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <button mat-icon-button
+                (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span class="spacer"></span>
+
+        <span >Bienvenido</span>
+
+        <button mat-button
+                color="primary">
+            Logout
+        </button>
+    </mat-toolbar>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>  
+</mat-sidenav-container>

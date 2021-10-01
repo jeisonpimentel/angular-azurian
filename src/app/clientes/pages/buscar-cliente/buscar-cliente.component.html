@@ -1,0 +1,40 @@
+<div fxLayout="column">
+    <div>
+        <h1>Buscador de Clientes</h1>
+        <mat-divider></mat-divider>
+    </div>
+
+    <div fxLayout="column">
+        <mat-form-field>
+            <input type="text"
+                   placeholder="Buscar cliente"
+                   aria-label="Number"
+                   [(ngModel)]="termino"
+                   matInput
+                   [matAutocomplete]="auto"
+                   (input)="buscando()">
+
+            <mat-autocomplete autoActiveFirstOption 
+                              #auto="matAutocomplete"
+                              (optionSelected)="opcionSeleccionada( $event )">
+              <mat-option *ngFor="let cliente of clientes" [value]="cliente">
+                {{cliente.nombre}} {{cliente.apellidoPaterno}}
+              </mat-option>
+
+              <mat-option *ngIf="clientes.length === 0 && termino"
+                          [value]="">
+                No se encontro nada con el término {{termino}}
+              </mat-option>
+
+            </mat-autocomplete>
+          </mat-form-field>
+    </div>
+
+    <div *ngIf="!clienteSeleccionado">
+        <mat-spinner></mat-spinner>
+    </div>    
+    
+    <div *ngIf="clienteSeleccionado">
+        <app-formulario [cliente]="clienteSeleccionado"></app-formulario>
+    </div>
+</div>
