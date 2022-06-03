@@ -26,6 +26,12 @@ export class BuscarClienteComponent implements OnInit {
 
   constructor(private clienteService: ClienteService) { }
 
+    /*
+    <div *ngIf="clienteSeleccionado">
+        <app-formulario [cliente]="clienteSeleccionado"></app-formulario>
+    </div>
+    */
+
   ngOnInit(): void {
   }
 

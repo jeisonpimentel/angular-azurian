@@ -1,6 +1,6 @@
 <h1>
-    {{ (cliente.id) ? 'Actualizar Mascota' : 'Crear Mascota' }} 
-    <small>{{ cliente.nombre }}</small>
+    {{ (mascota.id) ? 'Actualizar Mascota' : 'Crear Mascota' }} 
+    <small>{{ mascota.nombreMascota }}</small>
 </h1>
 
 <div 
@@ -21,7 +21,7 @@
             <mat-label>Nombre Mascota</mat-label>
             <input matInput
                    type="text"
-                   [(ngModel)]="cliente.nombre"
+                   [(ngModel)]="mascota.nombreMascota"
                    required>
         </mat-form-field>  
 
@@ -29,7 +29,7 @@
           <mat-label>Apodo Mascota</mat-label>
           <input matInput
                  type="text"
-                 [(ngModel)]="cliente.nombre">
+                 [(ngModel)]="mascota.apodoMascota">
         </mat-form-field>
        </div>
 
@@ -39,22 +39,22 @@
 
           <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
             <mat-label>Seleccione Sexo</mat-label>
-            <mat-select [(ngModel)]="cliente.comuna" name="comunas" 
+            <mat-select [(ngModel)]="mascota.sexo" name="sexos" 
                         #comuna="ngModel"
                         required>
-              <mat-option *ngFor="let comuna of comunas" [value]="comuna">
-                {{ comuna.nombre }}
+              <mat-option *ngFor="let s of sexos" [value]="s">
+                {{ s.nombre }}
               </mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
             <mat-label>Seleccione Raza</mat-label>
-            <mat-select [(ngModel)]="cliente.comuna" name="comunas" 
+            <mat-select [(ngModel)]="mascota.raza" name="razas" 
                         #comuna="ngModel"
                         required>
-              <mat-option *ngFor="let comuna of comunas" [value]="comuna">
-                {{ comuna.nombre }}
+              <mat-option *ngFor="let r of razas" [value]="r">
+                {{ r.nombre }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -66,7 +66,7 @@
 
           <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
             <mat-label>Fecha de Nacimiento</mat-label>
-            <input [(ngModel)]="cliente.fechaNacimiento"
+            <input [(ngModel)]="mascota.fechaNacimiento"
                     required
                     matInput [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -77,16 +77,15 @@
             <mat-label>Lugar de Nacimiento</mat-label>
             <input matInput
                    type="text"
-                   [(ngModel)]="cliente.nombre"
+                   [(ngModel)]="mascota.lugarNacimiento"
                    required>
-        </mat-form-field>  
+          </mat-form-field>  
 
         </div>
 
         <mat-divider></mat-divider>
         <h3 class="bg-primary text-white">Datos de Propietari@</h3>
         <mat-divider></mat-divider>
-
 
         <div fxLayout="row" 
              fxLayoutGap="20px"
@@ -103,7 +102,7 @@
             <mat-label>Segundo Nombre</mat-label>
             <input matInput
                   type="text"
-                    [(ngModel)]="cliente.nombre"
+                    [(ngModel)]="cliente.segundo"
                     required>
           </mat-form-field>  
         </div>
@@ -145,9 +144,9 @@
                 <mat-label>Fecha de Nacimiento</mat-label>
                  <input [(ngModel)]="cliente.fechaNacimiento"
                         required
-                        matInput [matDatepicker]="picker">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                        matInput [matDatepicker]="pickers">
+                <mat-datepicker-toggle matSuffix [for]="pickers"></mat-datepicker-toggle>
+                <mat-datepicker #pickers></mat-datepicker>
               </mat-form-field>
         </div> 
 
@@ -156,18 +155,15 @@
              fxLayout.xs="column">
 
              <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
-                <mat-label>Seleccione Región</mat-label>
-                <mat-select [(ngModel)]="regionSeleccionada"
-                            name="regionSeleccionada"
-                            #region
-                            (selectionChange)="onSelect(region.value)"
-                            [compareWith]="compararRegion"
-                            required>
-                  <mat-option *ngFor="let region of regiones" [value]="region">
-                    {{ region.nombre }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
+              <mat-label>Seleccione Región</mat-label>
+              <mat-select [(ngModel)]="cliente.region" name="regiones" 
+                          #comuna="ngModel"
+                          required>
+                <mat-option *ngFor="let r of regiones" [value]="r">
+                  {{ r.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
 
               <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
                 <mat-label>Seleccione Comuna</mat-label>
@@ -185,9 +181,9 @@
 
         <div class="row">
             <button class="btn btn-block btn-success"
-                    (click)="crearCliente()">
+                    (click)="crearMascota()">
                 <mat-icon>edit</mat-icon>
-                {{ (cliente.id) ? 'Actualizar' : 'Crear' }}
+                {{ (mascota.id) ? 'Actualizar' : 'Crear' }}
             </button>
             <span class="spacer"></span>
         </div>
