@@ -16,22 +16,102 @@
                mat-list-item
                (click)="sidenav.toggle()">
                <mat-icon mat-list-icon>add</mat-icon>
-               <span>Agregar Cliente</span>
-            </a>
-    
-            <a routerLink="./listado-clientes"
-               mat-list-item
-               (click)="sidenav.toggle()">
-               <mat-icon mat-list-icon>label</mat-icon>
-               <span>Listado de Clientes</span>
+               <span>Crear Mascotas</span>
             </a>
 
-            <a routerLink="./buscar-cliente"
-               mat-list-item
-               (click)="sidenav.toggle()">
-               <mat-icon mat-list-icon>search</mat-icon>
-               <span>Buscar Cliente</span>
+            <a routerLink="./listado-clientes" mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>label</mat-icon>
+                <span>Listado de Mascotas</span>
             </a>
+
+            <a routerLink="./buscar-cliente" mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span>Buscar Mascota</span>
+            </a>
+
+            <mat-divider></mat-divider>
+
+            <a routerLink="./ver-perfil"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>dashboard</mat-icon>
+                <span>Crear Veterinario</span>
+            </a>
+
+            <a routerLink="./ver-perfil"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>list</mat-icon>
+                <span>Listado de Veterinarios</span>
+            </a>
+
+            <a routerLink="./ver-perfil"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>location_searching</mat-icon>
+                <span>Buscar Veterinario</span>
+            </a>
+
+            <mat-divider></mat-divider>
+
+            <a routerLink="./ver-perfil"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>calendar_today</mat-icon>
+                <span>Reservar Hora</span>
+            </a>
+
+            <a routerLink="./ver-perfil"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>calendar_view_day</mat-icon>
+                <span>Horas agendadas</span>
+            </a>
+
+            <mat-divider></mat-divider>
+
+            <a routerLink="./ver-perfil"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>create_new_folder</mat-icon>
+                <span>Crear Sucursal</span>
+            </a>
+
+            <a routerLink="./ver-perfil"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>format_list_numbered</mat-icon>
+                <span>Listado de Sucursales</span>
+            </a>
+
+            <a routerLink="./ver-perfil"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>find_in_page</mat-icon>
+                <span>Buscar Sucursal</span>
+            </a>
+
+            <mat-divider></mat-divider>
+
+            <a routerLink="./ver-perfil"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>pets</mat-icon>
+                <span>Mantenedor Mascotas</span>
+            </a>
+
+            <mat-divider></mat-divider>
+
+            <a routerLink="./ver-perfil"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>supervisor_account</mat-icon>
+                <span>Perfil Usuario</span>
+            </a>
+
+            <mat-divider></mat-divider>
         </mat-nav-list>
     </mat-sidenav>
 
@@ -45,10 +125,18 @@
 
         <span >Bienvenido</span>
 
-        <button mat-button
-                color="primary">
+        <button mat-button color="primary" 
+                *ngIf="!isLogin; else loggedOut">
+        <mat-icon mat-list-icon>logout</mat-icon>
             Logout
         </button>
+
+        <ng-template #loggedOut>
+            <button mat-button color="primary">
+            <mat-icon mat-list-icon>login</mat-icon>
+                Login
+            </button>
+        </ng-template>
     </mat-toolbar>
 
     <div class="container">

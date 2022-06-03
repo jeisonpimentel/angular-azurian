@@ -1,26 +1,112 @@
 <h1>
-    {{ (cliente.id) ? 'Actualizar Cliente' : 'Nuevo Cliente' }} 
-     
+    {{ (cliente.id) ? 'Actualizar Mascota' : 'Crear Mascota' }} 
     <small>{{ cliente.nombre }}</small>
 </h1>
 
 <div 
-    class="container"
-    fxLayout="row" 
-     fxLayoutGap="40px"
-     fxLayout.xs="column">
+   class="container"
+   fxLayout="row" 
+   fxLayout.md="column">
 
-     
+    <div fxFlex="100" fxLayout="column">
 
-    <div fxFlex="50" fxLayout="column">
+      <mat-divider></mat-divider>
+      <h3 class="bg-primary text-white">Datos de Mascota</h3>
+      <mat-divider></mat-divider>
 
+      <div fxLayout="row" 
+      fxLayoutGap="20px"
+      fxLayout.xs="column">
         <mat-form-field fxFlex="100">
-            <mat-label>Nombre Completo</mat-label>
+            <mat-label>Nombre Mascota</mat-label>
             <input matInput
                    type="text"
                    [(ngModel)]="cliente.nombre"
                    required>
         </mat-form-field>  
+
+        <mat-form-field fxFlex="100">
+          <mat-label>Apodo Mascota</mat-label>
+          <input matInput
+                 type="text"
+                 [(ngModel)]="cliente.nombre">
+        </mat-form-field>
+       </div>
+
+        <div fxLayout="row" 
+        fxLayoutGap="20px"
+        fxLayout.xs="column">
+
+          <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+            <mat-label>Seleccione Sexo</mat-label>
+            <mat-select [(ngModel)]="cliente.comuna" name="comunas" 
+                        #comuna="ngModel"
+                        required>
+              <mat-option *ngFor="let comuna of comunas" [value]="comuna">
+                {{ comuna.nombre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+            <mat-label>Seleccione Raza</mat-label>
+            <mat-select [(ngModel)]="cliente.comuna" name="comunas" 
+                        #comuna="ngModel"
+                        required>
+              <mat-option *ngFor="let comuna of comunas" [value]="comuna">
+                {{ comuna.nombre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" 
+        fxLayoutGap="20px"
+        fxLayout.xs="column">
+
+          <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+            <mat-label>Fecha de Nacimiento</mat-label>
+            <input [(ngModel)]="cliente.fechaNacimiento"
+                    required
+                    matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Lugar de Nacimiento</mat-label>
+            <input matInput
+                   type="text"
+                   [(ngModel)]="cliente.nombre"
+                   required>
+        </mat-form-field>  
+
+        </div>
+
+        <mat-divider></mat-divider>
+        <h3 class="bg-primary text-white">Datos de Propietari@</h3>
+        <mat-divider></mat-divider>
+
+
+        <div fxLayout="row" 
+             fxLayoutGap="20px"
+             fxLayout.xs="column">
+          <mat-form-field fxFlex="100">
+            <mat-label>Primer Nombre</mat-label>
+            <input matInput
+                  type="text"
+                    [(ngModel)]="cliente.nombre"
+                    required>
+          </mat-form-field>  
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Segundo Nombre</mat-label>
+            <input matInput
+                  type="text"
+                    [(ngModel)]="cliente.nombre"
+                    required>
+          </mat-form-field>  
+        </div>
 
         <div fxLayout="row" 
              fxLayoutGap="20px"
@@ -95,21 +181,15 @@
               </mat-form-field>
         </div> 
 
-
-
         <br>
 
         <div class="row">
-            <button class="btn btn-block btn-primary"
+            <button class="btn btn-block btn-success"
                     (click)="crearCliente()">
                 <mat-icon>edit</mat-icon>
                 {{ (cliente.id) ? 'Actualizar' : 'Crear' }}
             </button>
             <span class="spacer"></span>
         </div>
-    </div>
-
-    <div fxFlex="50">
-        <img src="../../../../assets/no-image.png">
     </div>
 </div>
