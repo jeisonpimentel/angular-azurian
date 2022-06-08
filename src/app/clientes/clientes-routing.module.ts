@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from '../shared/home/home.component';
 import { FormularioComponent } from './pages/formulario/formulario.component';
 import { BuscarClienteComponent } from './pages/buscar-cliente/buscar-cliente.component';
+import { FormReservaHoraComponent } from '../reserva-hora/form-reserva-hora/form-reserva-hora.component';
 
 const routes: Routes = [
   {
@@ -12,25 +13,25 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { 
-        path: 'listado-clientes',
+        path: 'listado-mascotas',
         component: ListadoClientesComponent
       },
       { 
-        path: 'crear-cliente',
+        path: 'crear-mascota',
         component: FormularioComponent
       },
       { 
-        path: 'crear-cliente/:id',
+        path: 'crear-mascota/:id',
         component: FormularioComponent
       },
       {
-        path: 'buscar-cliente',
+        path: 'buscar-mascota',
         component: BuscarClienteComponent
       },
-      { 
-        path: '**',
-        redirectTo: 'listado-clientes'
-      },
+      // { 
+      //   path: '**',
+      //   redirectTo: 'listado-mascotas'
+      // },
     ]
   }
 ];

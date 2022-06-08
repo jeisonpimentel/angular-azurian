@@ -12,20 +12,20 @@
         </mat-toolbar>
 
         <mat-nav-list>
-            <a routerLink="./crear-cliente"
+            <a routerLink="./crear-mascota"
                mat-list-item
                (click)="sidenav.toggle()">
                <mat-icon mat-list-icon>add</mat-icon>
                <span>Crear Mascotas</span>
             </a>
 
-            <a routerLink="./listado-clientes" mat-list-item
+            <a routerLink="./listado-mascotas" mat-list-item
                 (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>label</mat-icon>
                 <span>Listado de Mascotas</span>
             </a>
 
-            <a routerLink="./buscar-cliente" mat-list-item
+            <a routerLink="./buscar-mascota" mat-list-item
                 (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>search</mat-icon>
                 <span>Buscar Mascota</span>
@@ -47,16 +47,9 @@
                 <span>Listado de Veterinarios</span>
             </a>
 
-            <a routerLink="./ver-perfil"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>location_searching</mat-icon>
-                <span>Buscar Veterinario</span>
-            </a>
-
             <mat-divider></mat-divider>
 
-            <a routerLink="./ver-perfil"
+            <a routerLink="./reserva-hora"
                 mat-list-item
                 (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>calendar_today</mat-icon>
@@ -84,13 +77,6 @@
                 (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>format_list_numbered</mat-icon>
                 <span>Listado de Sucursales</span>
-            </a>
-
-            <a routerLink="./ver-perfil"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>find_in_page</mat-icon>
-                <span>Buscar Sucursal</span>
             </a>
 
             <mat-divider></mat-divider>

@@ -1,22 +1,22 @@
 
 <div class="container">
-    <h2>Listado de clientes</h2>
+    <h2>Listado de Mascotas</h2>
 
     <table class="table table-bordered py-4">
         <thead>
             <tr>
                 <th>No</th>
                 <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Email</th>
+                <th>Apodo</th>
+                <th>Sexo</th>
+                <th>Raza</th>
                 <th>Fecha Nacimiento</th>
-                <th>Región</th>
-                <th>Comuna</th>
-                <th>Eliminar</th>
+                <th>Lugar de Nacimiento</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let cliente of clientes">
+            <!-- <tr *ngFor="let cliente of clientes">
                 <td>{{ cliente.id }}</td>
                 <td>{{ cliente.nombre }}</td>
                 <td>{{ cliente.apellidoPaterno }} {{ cliente.apellidoMaterno }}</td>
@@ -29,6 +29,19 @@
                             (click)="confirm(cliente, $event )">
                         <mat-icon class="customIconSize" color="warn">delete</mat-icon>
                     </button>    
+                </td>
+            </tr> -->
+            <tr *ngFor="let mascota of mascotas">
+                <td>{{ mascota.id }}</td>
+                <td>{{ mascota.nombreMascota }}</td>
+                <td>{{ mascota.apodoMascota }}</td>
+                <td>{{ mascota.sexo?.nombre }}</td>
+                <td>{{ mascota.raza?.nombre }}</td>
+                <td>{{ mascota.fechaNacimiento }}</td>
+                <td>{{ mascota.lugarNacimiento }}</td>
+                <td>
+                    <button class="btn btn-primary btn-xs"><mat-icon>edit</mat-icon></button>
+                    <button class="btn btn-danger btn-xs"><mat-icon>delete</mat-icon></button>
                 </td>
             </tr>
         </tbody>
