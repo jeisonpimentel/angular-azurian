@@ -5,7 +5,6 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from '../shared/home/home.component';
 import { FormularioComponent } from './pages/formulario/formulario.component';
 import { BuscarClienteComponent } from './pages/buscar-cliente/buscar-cliente.component';
-import { FormReservaHoraComponent } from '../reserva-hora/form-reserva-hora/form-reserva-hora.component';
 
 const routes: Routes = [
   {

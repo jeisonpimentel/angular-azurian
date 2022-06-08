@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from '../shared/home/home.component';
-import { FormSucursalComponent } from './form-sucursal/form-sucursal.component';
-import { ListaSucursalComponent } from './lista-sucursal/lista-sucursal.component';
+import { MantenedorPerfilComponent } from './mantenedor-perfil/mantenedor-perfil.component';
 
 const routes: Routes = [
   {
@@ -11,12 +10,8 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { 
-        path: 'crear-sucursal',
-        component: FormSucursalComponent
-      },
-      { 
-        path: 'listado-sucursal',
-        component: ListaSucursalComponent
+        path: 'mantenedor-usuario',
+        component: MantenedorPerfilComponent
       },
     ]
   }
@@ -29,4 +24,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class SucursalRoutingModule { }
+export class PerfilUsuarioRoutingModule { }

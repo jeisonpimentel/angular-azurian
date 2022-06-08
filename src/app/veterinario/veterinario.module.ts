@@ -5,14 +5,10 @@ import {FormsModule} from '@angular/forms'
 import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
-import { FormSucursalComponent } from './form-sucursal/form-sucursal.component';
-import { ListaSucursalComponent } from './lista-sucursal/lista-sucursal.component';
-import { SucursalRoutingModule } from './sucursal-routing.module';
+import { VeterinarioRoutingModule } from './veterinario-routing.module';
 
 @NgModule({
   declarations: [
-    FormSucursalComponent,
-    ListaSucursalComponent
   ],
   imports: [
     CommonModule,
@@ -20,9 +16,9 @@ import { SucursalRoutingModule } from './sucursal-routing.module';
     FormsModule,
     FlexLayoutModule,
     RouterModule,
-    SucursalRoutingModule,
+    VeterinarioRoutingModule,
   ], exports:[
     RouterModule
   ]
 })
-export class SucursalModule { }
+export class VeterinarioModule { }

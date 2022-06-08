@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from '../shared/home/home.component';
-import { FormSucursalComponent } from './form-sucursal/form-sucursal.component';
-import { ListaSucursalComponent } from './lista-sucursal/lista-sucursal.component';
+import { FormVeterinarioComponent } from './form-veterinario/form-veterinario.component';
+import { ListadoVeterinarioComponent } from './listado-veterinario/listado-veterinario.component';
 
 const routes: Routes = [
   {
@@ -11,12 +11,12 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { 
-        path: 'crear-sucursal',
-        component: FormSucursalComponent
+        path: 'crear-veterinario',
+        component: FormVeterinarioComponent
       },
       { 
-        path: 'listado-sucursal',
-        component: ListaSucursalComponent
+        path: 'listado-veterinarios',
+        component: ListadoVeterinarioComponent
       },
     ]
   }
@@ -29,4 +29,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class SucursalRoutingModule { }
+export class VeterinarioRoutingModule { }

@@ -5,14 +5,12 @@ import {FormsModule} from '@angular/forms'
 import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
-import { FormSucursalComponent } from './form-sucursal/form-sucursal.component';
-import { ListaSucursalComponent } from './lista-sucursal/lista-sucursal.component';
-import { SucursalRoutingModule } from './sucursal-routing.module';
+import { PerfilUsuarioRoutingModule } from './perfil-usuario-routing.module';
+import { MantenedorPerfilComponent } from './mantenedor-perfil/mantenedor-perfil.component';
 
 @NgModule({
   declarations: [
-    FormSucursalComponent,
-    ListaSucursalComponent
+    MantenedorPerfilComponent,
   ],
   imports: [
     CommonModule,
@@ -20,9 +18,9 @@ import { SucursalRoutingModule } from './sucursal-routing.module';
     FormsModule,
     FlexLayoutModule,
     RouterModule,
-    SucursalRoutingModule,
+    PerfilUsuarioRoutingModule,
   ], exports:[
     RouterModule
   ]
 })
-export class SucursalModule { }
+export class PerfilUsuarioModule { }
