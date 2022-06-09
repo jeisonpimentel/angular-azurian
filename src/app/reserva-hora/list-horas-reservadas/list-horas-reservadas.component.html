@@ -1,1 +1,64 @@
-<p>list-horas-reservadas works!</p>
+
+<div>
+
+    <h1>Listado de horas agendadas</h1>
+
+</div>
+
+
+<p-table [value]="customers">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Mascota</th>
+            <th>Sucursal</th>
+            <th>Fecha Consulta</th>
+            <th>Veterinario</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+        <tr>
+            <td>
+                <p-avatar
+                icon="pi pi-user"
+                styleClass="p-mr-2"
+                [style]="{'background-color': '#9c27b0', 'color': '#ffffff'}"
+                shape="circle"
+              ></p-avatar>
+                {{customer.mascota}}
+            </td>
+            <td>
+                <span class="image-text">{{customer.sucursal.nombre}} </span>
+                <p-badge *ngIf="customer.sucursal.nombre === 'Sede Costanera'" value="New"></p-badge>
+            </td>
+            <td>
+                <span class="image-text">{{customer.fechaConsulta}}</span>
+            </td>
+            <td>
+                <img src="{{customer.src}}" width="30" />
+                <span class="image-text">  {{customer.veterinario}}</span>
+            </td>
+            <td>
+                <span><p-badge value="{{ customer.estado.nombre}}" severity="{{customer.estado.severity}}"></p-badge></span>
+            </td>
+            <td>
+
+                <p-chip *ngIf="customer.estado.nombre === 'Abierta'" label="" icon="pi pi-pencil" (click)="editar( customer.id )"></p-chip>
+                <p-chip *ngIf="customer.estado.nombre === 'Abierta'" label="" icon="pi pi-times" (click)="confirm(customer.id, $event )"></p-chip>
+
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-toast></p-toast>
+<p-confirmPopup></p-confirmPopup>
+
+<mat-paginator [length]="totalRegistros"
+    [pageSize]="totalPorPagina"
+    [pageIndex]="paginaActual"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="paginar( $event )"
+    showFirstLastButtons>
+</mat-paginator>

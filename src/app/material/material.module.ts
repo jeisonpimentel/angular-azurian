@@ -21,6 +21,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {TableModule} from 'primeng/table';
+import {OrderListModule} from 'primeng/orderlist';
+import {BadgeModule} from 'primeng/badge';
+import { ChipModule } from 'primeng/chip';
+import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
 
 @NgModule({
   exports: [
@@ -45,7 +51,13 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatDatepickerModule,
     MatNativeDateModule,
     MatAutocompleteModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    TableModule,
+    OrderListModule,
+    BadgeModule,
+    ChipModule,
+    AvatarModule,
+    AvatarGroupModule
   ]
 })
 export class MaterialModule { }

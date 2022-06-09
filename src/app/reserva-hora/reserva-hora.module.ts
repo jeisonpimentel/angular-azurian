@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { FormReservaHoraComponent } from './form-reserva-hora/form-reserva-hora.component';
 import { ListHorasReservadasComponent } from './list-horas-reservadas/list-horas-reservadas.component';
 import { ReservaHoraRoutingModule } from './reserva-hora-routing.module';
+import { CustomerService } from './customerservice';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,11 @@ import { ReservaHoraRoutingModule } from './reserva-hora-routing.module';
     FormsModule,
     FlexLayoutModule,
     RouterModule,
-    ReservaHoraRoutingModule
+    ReservaHoraRoutingModule,
   ], exports:[
     RouterModule
+  ], providers: [
+    CustomerService
   ]
 })
 export class ReservaHoraModule { }

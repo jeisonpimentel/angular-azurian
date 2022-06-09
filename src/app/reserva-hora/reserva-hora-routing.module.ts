@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from '../shared/home/home.component';
 import { FormReservaHoraComponent } from './form-reserva-hora/form-reserva-hora.component';
+import { ListHorasReservadasComponent } from './list-horas-reservadas/list-horas-reservadas.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
       { 
         path: 'reserva-hora',
         component: FormReservaHoraComponent
+      },
+      { 
+        path: 'horas-agendadas',
+        component: ListHorasReservadasComponent
       },
 
     ]

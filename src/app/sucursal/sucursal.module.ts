@@ -7,7 +7,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { FormSucursalComponent } from './form-sucursal/form-sucursal.component';
 import { ListaSucursalComponent } from './lista-sucursal/lista-sucursal.component';
-import { SucursalRoutingModule } from './sucursal-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { SucursalRoutingModule } from './sucursal-routing.module';
     FormsModule,
     FlexLayoutModule,
     RouterModule,
-    SucursalRoutingModule,
   ], exports:[
     RouterModule
   ]
