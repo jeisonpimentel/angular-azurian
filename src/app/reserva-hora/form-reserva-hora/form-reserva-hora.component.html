@@ -1,0 +1,205 @@
+<h1>
+    {{ (mascota.id) ? 'Actualizar Hora' : 'Reservar Hora' }} 
+    <small>{{ mascota.nombreMascota }}</small>
+</h1>
+
+
+<div 
+   class="container"
+   fxLayout="row" 
+   fxLayout.md="column">
+
+    <div fxFlex="100" fxLayout="column">
+
+      <mat-divider></mat-divider>
+      <h3 class="bg-primary text-white">Datos de Mascota</h3>
+      <mat-divider></mat-divider>
+
+      <div fxLayout="row" 
+      fxLayoutGap="20px"
+      fxLayout.xs="column">
+
+          <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+            <mat-label>Seleccione Mascota</mat-label>
+            <mat-select [(ngModel)]="mascota"
+                        required>
+              <mat-option *ngFor="let m of mascotas" [value]="m">
+                {{ m?.nombreMascota + ' - ' + m?.apodoMascota + ' - ' + m.raza?.nombre}} 
+              </mat-option>
+            </mat-select>
+          </mat-form-field>  
+
+        <div fxFlex="100">
+            <span class="p-buttonset">
+                <button pButton type="button" 
+                label="Cargar Datos de Mascota" 
+                icon="pi-align-right" iconPos="right" 
+                class="p-button-text p-button-text p-button-lg"
+                (click)="cargarDatoMascota( $event )"></button>
+            </span>
+        </div>
+       </div>
+
+       <div fxLayout="row" 
+            fxLayoutGap="20px"
+            fxLayout.xs="column">
+         <mat-form-field fxFlex="25">
+             <mat-label>Nombre Mascota</mat-label>
+             <input matInput
+                    type="text"
+                    disabled="true"
+                    [(ngModel)]="reservaHora.nombre"
+                    required>
+         </mat-form-field>  
+ 
+         <mat-form-field fxFlex="25">
+           <mat-label>Sexo</mat-label>
+           <input matInput
+                  type="text"
+                  disabled="true"
+                  [(ngModel)]="reservaHora.sexo">
+         </mat-form-field>
+
+         <mat-form-field fxFlex="25">
+            <mat-label>Raza</mat-label>
+            <input matInput
+                   type="text"
+                   disabled="true"
+                   [(ngModel)]="reservaHora.raza">
+          </mat-form-field>
+
+          <mat-form-field fxFlex="25">
+            <mat-label>Fecha Nacimiento</mat-label>
+            <input matInput
+                   type="text"
+                   disabled="true"
+                   [(ngModel)]="reservaHora.fechaNacimiento">
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row" 
+        fxLayoutGap="20px"
+        fxLayout.xs="column">
+            <mat-form-field fxFlex="25">
+                <mat-label>Nombre Cliente</mat-label>
+                <input matInput
+                        type="text"
+                        [(ngModel)]="reservaHora.nombreCliente"
+                        disabled="true"
+                        required>
+            </mat-form-field>  
+
+            <mat-form-field fxFlex="25">
+            <mat-label>Apellido Cliente</mat-label>
+            <input matInput
+                    type="text"
+                    disabled="true"
+                    [(ngModel)]="reservaHora.apellidoCliente">
+            </mat-form-field>
+
+            <mat-form-field fxFlex="25">
+                <mat-label>Email</mat-label>
+                <input matInput
+                    type="text"
+                    disabled="true"
+                    [(ngModel)]="reservaHora.emailCliente">
+            </mat-form-field>
+
+            <mat-form-field fxFlex="25">
+                <mat-label>Fecha Nacimiento</mat-label>
+                <input matInput
+                    disabled="true"
+                    type="text"
+                    [(ngModel)]="reservaHora.fechaNacimientoC">
+            </mat-form-field>
+    </div>
+
+    <mat-divider></mat-divider>
+    <h3 class="bg-primary text-white">Datos de Reserva</h3>
+    <mat-divider></mat-divider>
+
+    <div fxLayout="row" 
+    fxLayoutGap="20px"
+    fxLayout.xs="column">
+
+          <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+            <mat-label>Seleccione Motivo</mat-label>
+            <mat-select [(ngModel)]="reservaHora.motivoConsulta"
+                        required>
+              <mat-option *ngFor="let m of motivoConsulta" [value]="m">
+                {{ m.nombre }} 
+              </mat-option>
+            </mat-select>
+          </mat-form-field>    
+
+          <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+            <mat-label>Seleccione Veterinari@</mat-label>
+            <mat-select [(ngModel)]="reservaHora.veterinario"
+                        required>
+              <mat-option *ngFor="let v of veterinarios" [value]="v">
+                {{ v.nombre }} 
+              </mat-option>
+            </mat-select>
+          </mat-form-field>    
+</div>
+
+<div fxLayout="row" 
+fxLayoutGap="20px"
+fxLayout.xs="column">
+
+    <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+      <mat-label>Fecha de Consulta</mat-label>
+      <input [(ngModel)]="reservaHora.fechaConsulta"
+              required
+              matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+      <mat-label>Seleccione Región</mat-label>
+      <mat-select [(ngModel)]="reservaHora.region"
+                  required>
+        <mat-option *ngFor="let r of regiones" [value]="r">
+          {{ r.nombre }} 
+        </mat-option>
+      </mat-select>
+    </mat-form-field>  
+</div>
+
+<div fxLayout="row" 
+fxLayoutGap="20px"
+fxLayout.xs="column">
+
+    <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+      <mat-label>Seleccione Comuna</mat-label>
+      <mat-select [(ngModel)]="reservaHora.comuna"
+                  required>
+        <mat-option *ngFor="let c of comunas" [value]="c">
+          {{ c.nombre }} 
+        </mat-option>
+      </mat-select>
+    </mat-form-field>  
+
+    <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+      <mat-label>Seleccione Sucursal</mat-label>
+      <mat-select [(ngModel)]="reservaHora.sucursal"
+                  required>
+        <mat-option *ngFor="let s of sucursales" [value]="s">
+          {{ s.nombre }} 
+        </mat-option>
+      </mat-select>
+    </mat-form-field>  
+</div>
+
+<br>
+
+<div class="row">
+    <button class="btn btn-block btn-success" >
+        <mat-icon>edit</mat-icon>
+        {{ (mascota.id) ? 'Actualizar Hora' : 'Agendar Hora' }}
+    </button>
+    <span class="spacer"></span>
+</div>
+
+</div>

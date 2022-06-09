@@ -27,6 +27,10 @@ import {BadgeModule} from 'primeng/badge';
 import { ChipModule } from 'primeng/chip';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
+import {CheckboxModule} from 'primeng/checkbox';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 @NgModule({
   exports: [
@@ -57,7 +61,11 @@ import {AvatarGroupModule} from 'primeng/avatargroup';
     BadgeModule,
     ChipModule,
     AvatarModule,
-    AvatarGroupModule
+    AvatarGroupModule,
+    CheckboxModule,
+    RadioButtonModule,
+    MessagesModule, 
+    MessageModule
   ]
 })
 export class MaterialModule { }

@@ -6,8 +6,8 @@ export interface Mascota {
     id?:              number;
     nombreMascota  ?: string;
     apodoMascota   ?: string;
-    sexo           ?: Sexo;
-    raza           ?: Raza;
+    sexo           ?: Sexo ;
+    raza           ?: Raza ;
     fechaNacimiento?: string;
     lugarNacimiento?: string;
     cliente        ?: Cliente;

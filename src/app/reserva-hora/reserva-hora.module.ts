@@ -26,7 +26,7 @@ import { CustomerService } from './customerservice';
   ], exports:[
     RouterModule
   ], providers: [
-    CustomerService
+    CustomerService,
   ]
 })
 export class ReservaHoraModule { }
