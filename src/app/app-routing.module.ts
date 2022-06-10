@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'petApp',   loadChildren: () => import('./sucursal/sucursal.module').then( m => m.SucursalModule )},
   {path: 'petApp',   loadChildren: () => import('./veterinario/veterinario.module').then( m => m.VeterinarioModule )},
   {path: 'petApp',   loadChildren: () => import('./perfil-usuario/perfil-usuario.module').then( m => m.PerfilUsuarioModule )},
+  {path: 'petApp',   loadChildren: () => import('./login/login.module').then( m => m.LoginModule )},
   {path: '**',  redirectTo: 'petApp'}
 ];
 
