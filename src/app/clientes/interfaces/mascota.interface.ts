@@ -13,4 +13,8 @@ export interface Mascota {
     fechaNacimiento?: string;
     lugarNacimiento?: string;
     cliente        ?: Cliente;
+    vacunasAlDia   ?: string;
+    poseeChip      ?: string;
+    operaciones    ?: string;
+    enfermedades   ?: string;
 }

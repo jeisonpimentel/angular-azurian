@@ -95,19 +95,26 @@
 
           <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
             <mat-label>Vacunas al día</mat-label>
-            <mat-select name="sexos" required>
-              <mat-option > Sí </mat-option>
-              <mat-option > No </mat-option>
+            <mat-select [(ngModel)]="mascota.vacunasAlDia" name="tipos" 
+                        #comuna="ngModel"
+                        required>
+              <mat-option *ngFor="let v of vacunas" [value]="v.nombre">
+                {{ v.nombre }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
-            <mat-label>Posee Micro-chip?</mat-label>
-            <mat-select name="sexos" required>
-              <mat-option > Sí </mat-option>
-              <mat-option > No </mat-option>
+            <mat-label>¿Posee Micro-chip?</mat-label>
+            <mat-select [(ngModel)]="mascota.poseeChip" name="tipos" 
+                        #comuna="ngModel"
+                        required>
+              <mat-option *ngFor="let pc of poseeChip" [value]="pc.nombre">
+                {{ pc.nombre }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
+
         </div>
 
         <div fxLayout="row" 
@@ -116,17 +123,23 @@
 
           <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
             <mat-label>¿Ha tenido alguna operación/cirugía?</mat-label>
-            <mat-select name="sexos" required>
-              <mat-option > Sí </mat-option>
-              <mat-option > No </mat-option>
+            <mat-select [(ngModel)]="mascota.operaciones" name="tipos" 
+                        #comuna="ngModel"
+                        required>
+              <mat-option *ngFor="let op of operaciones" [value]="op.nombre">
+                {{ op.nombre }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
             <mat-label>¿Tiene alguna enfermedad?</mat-label>
-            <mat-select name="sexos" required>
-              <mat-option > Sí </mat-option>
-              <mat-option > No </mat-option>
+            <mat-select [(ngModel)]="mascota.enfermedades" name="tipos" 
+                        #comuna="ngModel"
+                        required>
+              <mat-option *ngFor="let ef of enfermedad" [value]="ef.nombre">
+                {{ ef.nombre }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -228,8 +241,6 @@
         </div> 
 
         <br>      
-        <br>
-        <br>
 
         <div class="row">
             <button class="btn btn-block btn-success"
