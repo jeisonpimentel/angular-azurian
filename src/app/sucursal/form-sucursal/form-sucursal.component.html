@@ -1,3 +1,5 @@
+
+
 <div 
    class="container"
    fxLayout="row" 
@@ -12,13 +14,16 @@
       <mat-form-field fxFlex="100"  fxLayout.xs="column">
         <mat-label>Nombre Sucursal</mat-label>
         <input matInput
-                type="text">
+                type="text"
+                required email>
+                
     </mat-form-field>
 
     <mat-form-field fxFlex="100"  fxLayout.xs="column">
         <mat-label>Encargado Sucursal</mat-label>
         <input matInput
-                type="text">
+                type="text"
+                required>
     </mat-form-field>
 
 
@@ -62,11 +67,9 @@
    
 
 
-  <div class="row">
-    <button class="btn btn-block btn-success" 
-   >
-        <mat-icon >edit</mat-icon>
-        Crear Sucursal
-    </button>
-    <span class="spacer"></span>
-</div>
+      <div class="row">
+        <button (click)="CrearSucursal" class="btn btn-block btn-success">Crear Sucursal
+            <mat-icon>edit</mat-icon>
+        </button>
+        <span class="spacer"></span>
+    </div>

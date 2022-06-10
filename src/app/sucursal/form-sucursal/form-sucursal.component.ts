@@ -29,7 +29,11 @@ export class FormSucursalComponent implements OnInit {
   
   }
 
+CrearSucursal(){
+  alert('Sucursal Creada')
+}
 
+  
 
 comunasChile() : void {
     this.comunas = [
