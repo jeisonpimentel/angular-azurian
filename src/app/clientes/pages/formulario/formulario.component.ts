@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Mascota } from '../../interfaces/mascota.interface';
 import { Sexo } from '../../interfaces/sexo.interface';
 import { Raza } from '../../interfaces/raza.interface';
+import { Tipo } from '../../interfaces/tipo.interface';
 import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 
 @Component({
@@ -32,6 +33,7 @@ export class FormularioComponent implements OnInit {
   cliente: Cliente = {};
   sexos!: Sexo[];
   razas!: Raza[];
+  tipos!: Tipo[];
   regiones!: Region[];
   comunas!: Comuna[];
   regionSeleccionada: Region = {
@@ -66,7 +68,7 @@ export class FormularioComponent implements OnInit {
     */
 
     this.sexoMascota();
-    this.razaMascota();
+    this.tipoMascota();
     this.regionesChile();
     this.comunasChile();
   }
@@ -139,7 +141,7 @@ export class FormularioComponent implements OnInit {
     this.sexos = [
      {
        id: 1,
-       nombre: 'Varón'
+       nombre: 'Macho'
      },
      {
       id: 2,
@@ -148,27 +150,23 @@ export class FormularioComponent implements OnInit {
     ]  
   }
 
-  razaMascota() : void {
-    this.razas = [
+  tipoMascota() : void {
+    this.tipos = [
       {
         id: 1,
-        nombre: 'Raza1'
+        nombre: 'Perro'
       },
       {
         id: 2,
-        nombre: 'Raza2'
+        nombre: 'Gato'
       },      
       {
         id: 3,
-        nombre: 'Raza3'
+        nombre: 'Mascota exótica'
       },
       {
         id: 4,
-        nombre: 'Raza4'
-      },
-      {
-        id: 5,
-        nombre: 'Raza5'
+        nombre: 'Otro'
       },
     ]
   }
