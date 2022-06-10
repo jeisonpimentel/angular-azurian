@@ -1,37 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from 'src/app/clientes/interfaces/cliente.interface';
 import { Region } from '../../clientes/interfaces/region.interface';
 import { Comuna } from '../../clientes/interfaces/comuna.interface';
-import { ReservaHora } from '../../clientes/interfaces/reservaHora.interface';
-import { ConfirmationService, MessageService } from 'primeng/api';
-import { Sucursal } from 'src/app/reserva-hora/customer';
+import { Sucursales } from '../../clientes/interfaces/sucursales.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-sucursal',
   templateUrl: './form-sucursal.component.html',
 })
 export class FormSucursalComponent implements OnInit {
-  sucursal: Sucursal = {};
-  cliente: Cliente = {};
-  reservaHora: ReservaHora = {};
+
+  sucursal!: Sucursales;
   regiones!: Region[];
   comunas!: Comuna[];
-  regionSeleccionada: Region = {
-    id: 0,
-    nombre: ''
-  }
 
   constructor() { }
 
   ngOnInit(): void {
+    this.inicializarSucursal();
     this.comunasChile();
     this.regionesChile();
-  
   }
 
+  inicializarSucursal(){
+    this.sucursal = {
+      id: new Date().getTime(),
+      nombre: '',
+      encargado: '',
+      email: '',
+      telefono: '',
+      direccion: '',
+      region: '',
+      comuna: '',
+    }
+  }
 
-
-comunasChile() : void {
+  comunasChile() : void {
     this.comunas = [
       {
         id: 1,
@@ -70,7 +74,6 @@ comunasChile() : void {
     ]
   }
 
-
   regionesChile() : void {
     this.regiones = [
       {
@@ -98,5 +101,32 @@ comunasChile() : void {
         nombre: 'De Los Lagos'
       },
     ]
+  }
+
+  crearSucursal(): void {
+
+    if( this.sucursal.nombre?.length == 0 || this.sucursal.encargado?.length == 0 || 
+        this.sucursal.encargado?.length == 0 || this.sucursal.email?.length == 0 ||
+        this.sucursal.telefono?.length == 0 || this.sucursal.region?.length == 0 ||
+        this.sucursal.comuna?.length == 0 || this.sucursal.direccion?.length == 0 ){
+
+          Swal.fire({
+            title: 'Error!',
+            text: 'Debe completar todos los campos que son obligatorios!',
+            icon: 'error',
+            confirmButtonText: 'Oook!'
+          });
+
+        }
+    else {
+
+      Swal.fire('Ha sido creada la sucursal "' + 
+      this.sucursal.nombre + '" En la dirección "' + 
+      this.sucursal.direccion + '" Región "' + 
+      this.sucursal.region + '" Comuna "' + 
+      this.sucursal.comuna + '"' );
+
+      this.sucursal = { };
+    }
   }
 }

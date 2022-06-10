@@ -1,6 +1,7 @@
 <h1>
-    {{ (mascota.id) ? 'Actualizar Mascota' : 'Crear Mascota' }} 
-    <small>{{ mascota.nombreMascota }}</small>
+  Crear Mascota
+    <!--{{ (mascota.id) ? 'Actualizar Mascota' : 'Crear Mascota' }} 
+    <small>{{ mascota.nombreMascota }}</small>-->
 </h1>
 
 <div 
@@ -247,7 +248,8 @@
             <button class="btn btn-block btn-success"
                     (click)="crearMascota()">
                 <mat-icon>edit</mat-icon>
-                {{ (mascota.id) ? 'Actualizar' : 'Crear' }}
+                  Crear
+                <!--{{ (mascota.id) ? 'Actualizar' : 'Crear' }}-->
             </button>
             <span class="spacer"></span>
         </div>

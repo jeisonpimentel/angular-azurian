@@ -6,6 +6,7 @@ import { Mascota } from '../../interfaces/mascota.interface';
 import { Sexo } from '../../interfaces/sexo.interface';
 import { Raza } from '../../interfaces/raza.interface';
 import { Tipo } from '../../interfaces/tipo.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-formulario',
@@ -22,7 +23,6 @@ import { Tipo } from '../../interfaces/tipo.interface';
 })
 export class FormularioComponent implements OnInit {
 
-  mascotas: Mascota[] = [];
   mascota: Mascota = {};
   cliente: Cliente = {};
   sexos!: Sexo[];
@@ -70,16 +70,57 @@ export class FormularioComponent implements OnInit {
     this.regionesChile();
     this.comunasChile();
     this.crearRestante();
+    this.inicializarMascota();
     
   }
 
+  inicializarMascota():void {
+
+    this.mascota = {
+      id:              new Date().getTime(),
+      nombreMascota  : '',
+      apodoMascota   : '',
+      sexo           : { } ,
+      raza           : { },
+      tipo           : { },
+      fechaNacimiento: '',
+      lugarNacimiento: '',
+      cliente        : { },
+      vacunasAlDia   : '',
+      poseeChip      : '',
+      operaciones    : '',
+      enfermedades   : '',
+    }
+  }
+
   crearMascota(): void {
-    
-    this.mascota.cliente = this.cliente;
-    console.log('Mascota', this.mascota);
-    this.mascotas.push( this.mascota );
-    this.mascota = {};
-    this.cliente = {};
+     this.mascota.cliente = this.cliente;
+
+    console.log( this.mascota );
+
+    if( this.mascota.nombreMascota?.length            == 0 || this.mascota.apodoMascota?.length             == 0 || this.mascota.sexo?.nombre?.length     == 0 || 
+        this.mascota.tipo?.nombre?.length             == 0 || this.mascota.fechaNacimiento?.length          == 0 || this.mascota.lugarNacimiento?.length  == 0 || 
+        this.mascota.vacunasAlDia?.length             == 0 || this.mascota.poseeChip?.length                == 0 || this.mascota.operaciones?.length      == 0 || 
+        this.mascota.enfermedades?.length             == 0 || this.mascota.cliente?.nombre?.length          == 0 || this.mascota.cliente?.segundo?.length == 0 || 
+        this.mascota.cliente?.apellidoPaterno?.length == 0 || this.mascota.cliente?.apellidoMaterno?.length == 0 || this.mascota.cliente?.email?.length   == 0 ||
+        this.mascota.cliente?.fechaNacimiento?.length == 0 || this.mascota.cliente?.region?.nombre?.length  == 0 || this.mascota.cliente?.comuna?.nombre?.length == 0  )  {
+
+          Swal.fire({
+            title: 'Error!',
+            text: 'Debe completar todos los campos que son obligatorios!',
+            icon: 'error',
+            confirmButtonText: 'Oook!'
+          });
+
+        } else {
+
+          Swal.fire('Ha sido creada la mascota "' + 
+                    this.mascota.nombreMascota + '" con el cliente "' + 
+                    this.mascota.cliente?.nombre + '"' );
+
+        this.mascota = { };
+        this.cliente = { }; 
+        } 
   }  
 
   /*

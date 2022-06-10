@@ -1,0 +1,88 @@
+{
+    "data": [
+            {
+                "id": 100,
+                "nombre": "Sucursal Costanera",
+                "encargado": "Francisco Gúzman",
+                "email": "sucursalcostanera@belovedpets.com",
+                "telefono": "2-2345-6789",
+                "direccion": "Av. Costanera 3221",
+                "region": "Metropolitana",
+                "comuna": "Las Condes",
+                "estado": "Activa",
+                "severity": "success"
+            },
+            {
+                "id": 101,
+                "nombre": "Sucursal Providencia",
+                "encargado": "Daniel Gutierrez",
+                "email": "sucursalprovidencia@belovedpets.com",
+                "telefono": "2-2345-6789",
+                "direccion": "Av. Providencia 21341",
+                "region": "Metropolitana",
+                "comuna": "Providencia",
+                "estado": "Activa",
+                "severity": "success"
+            },
+            {
+                "id": 102,
+                "nombre": "Sucursal Ñuñoa",
+                "encargado": "Valeria Rodriguez",
+                "email": "sucursalnunoa@belovedpets.com",
+                "telefono": "2-2345-6789",
+                "direccion": "Av. Ñuñoa 213452",
+                "region": "Metropolitana",
+                "comuna": "Ñuñoa",
+                "estado": "Activa",
+                "severity": "success"
+            },
+            {
+                "id": 103,
+                "nombre": "Sucursal La Florida",
+                "encargado": "Ana Pérez",
+                "email": "sucursalflorida@belovedpets.com",
+                "telefono": "2-2345-6789",
+                "direccion": "Av. La Florida 3221",
+                "region": "Metropolitana",
+                "comuna": "Las Florida",
+                "estado": "Activa",
+                "severity": "success"
+            },
+            {
+                "id": 104,
+                "nombre": "Sucursal Maipu",
+                "encargado": "Francisco Gúzman",
+                "email": "sucursalmaipu@belovedpets.com",
+                "telefono": "2-2345-6789",
+                "direccion": "Av. Maipu 2230",
+                "region": "Metropolitana",
+                "comuna": "Maipu",
+                "estado": "Activa",
+                "severity": "success"
+            },
+            {
+                "id": 105,
+                "nombre": "Sucursal Lo Barnechea",
+                "encargado": "Francisco Gúzman",
+                "email": "sucursalbarnechea@belovedpets.com",
+                "telefono": "2-2345-6789",
+                "direccion": "Av. Dehesa 3221",
+                "region": "Metropolitana",
+                "comuna": "Las Dehesa",
+                "estado": "Activa",
+                "severity": "success"
+            },
+            {
+                "id": 106,
+                "nombre": "Sucursal Santiago",
+                "encargado": "Luis Alvis",
+                "email": "sucursalsantiago@belovedpets.com",
+                "telefono": "2-2345-6789",
+                "direccion": "Eleuterio Ramirez 3221",
+                "region": "Metropolitana",
+                "comuna": "Santiago Centro",
+                "estado": "Desactivada",
+                "severity": "danger"
+            }
+        ]
+}

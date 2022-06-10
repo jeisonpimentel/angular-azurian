@@ -8,11 +8,12 @@ import { RouterModule } from '@angular/router';
 import { FormSucursalComponent } from './form-sucursal/form-sucursal.component';
 import { ListaSucursalComponent } from './lista-sucursal/lista-sucursal.component';
 import { SucursalRoutingModule } from './sucursal-routing.module';
+import { CustomerServiceSucursales } from './customerservicessucursales';
 
 @NgModule({
   declarations: [
     FormSucursalComponent,
-    ListaSucursalComponent
+    ListaSucursalComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +24,8 @@ import { SucursalRoutingModule } from './sucursal-routing.module';
     SucursalRoutingModule
   ], exports:[
     RouterModule
+  ],  providers: [
+    CustomerServiceSucursales,
   ]
 })
 export class SucursalModule { }

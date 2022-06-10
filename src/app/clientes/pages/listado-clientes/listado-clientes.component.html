@@ -118,7 +118,6 @@
                     <p-chip *ngIf="customer.estado === 'Activa'" label="" icon="pi pi-pencil" (click)="editarMascota( customer.id )"></p-chip>
                     <p-chip *ngIf="customer.estado === 'Activa'" label="" icon="pi pi-times" (click)="desactivarMascota( customer.id, $event )"></p-chip>
                     <p-chip *ngIf="customer.estado === 'Desactivada'" label="" icon="pi pi-check" (click)="activarMascota(  customer.id, $event )"></p-chip>
-
                 </td>
 
 

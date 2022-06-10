@@ -10,12 +10,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { BuscarClienteComponent } from './pages/buscar-cliente/buscar-cliente.component'; 
 import { CustomerService } from './services/customerservice';
+import { FormularioUsuarioComponent } from './pages/usuario-formulario/formulario-usuario/formulario-usuario.component';
 
 @NgModule({
   declarations: [
     ListadoClientesComponent,
     FormularioComponent,
-    BuscarClienteComponent
+    BuscarClienteComponent,
+    FormularioUsuarioComponent
   ],
   imports: [
     CommonModule,

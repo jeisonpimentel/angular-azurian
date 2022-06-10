@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from '../shared/home/home.component';
 import { FormularioComponent } from './pages/formulario/formulario.component';
 import { BuscarClienteComponent } from './pages/buscar-cliente/buscar-cliente.component';
+import { FormularioUsuarioComponent } from './pages/usuario-formulario/formulario-usuario/formulario-usuario.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'buscar-mascota',
         component: BuscarClienteComponent
+      },
+      {
+        path: 'crear-usuario',
+        component: FormularioUsuarioComponent
       },
       // { 
       //   path: '**',

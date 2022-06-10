@@ -1,3 +1,7 @@
+<h1>
+  Crear Sucursal
+</h1>
+
 <div 
    class="container"
    fxLayout="row" 
@@ -12,21 +16,24 @@
       <mat-form-field fxFlex="100"  fxLayout.xs="column">
         <mat-label>Nombre Sucursal</mat-label>
         <input matInput
-                type="text">
+                type="text"
+                required
+                [(ngModel)]="sucursal.nombre">
     </mat-form-field>
 
     <mat-form-field fxFlex="100"  fxLayout.xs="column">
         <mat-label>Encargado Sucursal</mat-label>
         <input matInput
-                type="text">
+                type="text"
+                required
+                [(ngModel)]="sucursal.encargado">
     </mat-form-field>
-
 
     <mat-form-field fxFlex="100"  fxLayout.xs="column">
         <mat-label>Email</mat-label>
         <input matInput
                 type="text"
-                [(ngModel)]="cliente.email"
+                [(ngModel)]="sucursal.email"
                 required email>
     </mat-form-field>
 
@@ -34,17 +41,23 @@
         <mat-label>Telefono Contacto</mat-label>
         <input matInput
                 type="text"
+                [(ngModel)]="sucursal.telefono"
                 required>
     </mat-form-field>
 
-
-
+        <mat-form-field fxFlex="100"  fxLayout.xs="column">
+        <mat-label>Dirección Completa</mat-label>
+        <input matInput
+                type="text"
+                [(ngModel)]="sucursal.direccion"
+                required>
+    </mat-form-field>
 
     <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
         <mat-label>Seleccione Región</mat-label>
-        <mat-select [(ngModel)]="reservaHora.region"
+        <mat-select [(ngModel)]="sucursal.region"
                     required>
-          <mat-option *ngFor="let r of regiones" [value]="r">
+          <mat-option *ngFor="let r of regiones" [value]="r.nombre">
             {{ r.nombre }} 
           </mat-option>
         </mat-select>
@@ -52,19 +65,16 @@
 
     <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
         <mat-label>Seleccione Comuna</mat-label>
-        <mat-select [(ngModel)]="reservaHora.comuna"
+        <mat-select [(ngModel)]="sucursal.comuna"
                     required>
-          <mat-option *ngFor="let c of comunas" [value]="c">
+          <mat-option *ngFor="let c of comunas" [value]="c.nombre">
             {{ c.nombre }} 
           </mat-option>
         </mat-select>
       </mat-form-field>  
    
-
-
   <div class="row">
-    <button class="btn btn-block btn-success" 
-   >
+    <button class="btn btn-block btn-success" (click)="crearSucursal()">
         <mat-icon >edit</mat-icon>
         Crear Sucursal
     </button>
