@@ -1,16 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Cliente } from '../../interfaces/cliente.interface';
-import { ClienteService } from '../../services/cliente.service';
-import { ComunaService } from '../../services/comuna.service';
 import { Comuna } from '../../interfaces/comuna.interface';
-import { RegionService } from '../../services/region.service';
 import { Region } from '../../interfaces/region.interface';
-import swal from 'sweetalert2';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Mascota } from '../../interfaces/mascota.interface';
 import { Sexo } from '../../interfaces/sexo.interface';
 import { Raza } from '../../interfaces/raza.interface';
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
+import { Tipo } from '../../interfaces/tipo.interface';
 
 @Component({
   selector: 'app-formulario',
@@ -32,12 +27,17 @@ export class FormularioComponent implements OnInit {
   cliente: Cliente = {};
   sexos!: Sexo[];
   razas!: Raza[];
+  tipos!: Tipo[];
   regiones!: Region[];
   comunas!: Comuna[];
   regionSeleccionada: Region = {
     id: 0,
     nombre: ''
   }
+  vacunas:      any[] = [];
+  poseeChip:    any[] = [];
+  operaciones:  any[] = [];
+  enfermedad:   any[] = [];
 
   /*
   @Input() cliente: Cliente = {}
@@ -66,9 +66,11 @@ export class FormularioComponent implements OnInit {
     */
 
     this.sexoMascota();
-    this.razaMascota();
+    this.tipoMascota();
     this.regionesChile();
     this.comunasChile();
+    this.crearRestante();
+    
   }
 
   crearMascota(): void {
@@ -139,7 +141,7 @@ export class FormularioComponent implements OnInit {
     this.sexos = [
      {
        id: 1,
-       nombre: 'Varón'
+       nombre: 'Macho'
      },
      {
       id: 2,
@@ -148,27 +150,23 @@ export class FormularioComponent implements OnInit {
     ]  
   }
 
-  razaMascota() : void {
-    this.razas = [
+  tipoMascota() : void {
+    this.tipos = [
       {
         id: 1,
-        nombre: 'Raza1'
+        nombre: 'Perro'
       },
       {
         id: 2,
-        nombre: 'Raza2'
+        nombre: 'Gato'
       },      
       {
         id: 3,
-        nombre: 'Raza3'
+        nombre: 'Mascota exótica'
       },
       {
         id: 4,
-        nombre: 'Raza4'
-      },
-      {
-        id: 5,
-        nombre: 'Raza5'
+        nombre: 'Otro'
       },
     ]
   }
@@ -221,6 +219,54 @@ export class FormularioComponent implements OnInit {
         nombre: 'Ñuñoa'
       },
     ]
+  }
+
+  crearRestante(): void {
+
+    this.vacunas = [
+      {
+        id: 1,
+        nombre: 'Si, posee vacunas'
+      },
+      {
+        id: 1,
+        nombre: 'No, no tiene vacunas'
+      }
+    ]
+
+    this.poseeChip = [
+      {
+        id: 1,
+        nombre: 'Si, posee micro-chip'
+      },
+      {
+        id: 1,
+        nombre: 'No, no tiene micro-chip'
+      }
+    ]
+
+    this.enfermedad = [
+      {
+        id: 1,
+        nombre: 'Si, tiene enfermedad'
+      },
+      {
+        id: 1,
+        nombre: 'No, no tiene enfermedad'
+      }
+    ]
+
+    this.operaciones = [
+      {
+        id: 1,
+        nombre: 'Si, tiene operaciones'
+      },
+      {
+        id: 1,
+        nombre: 'No, no tiene operaciones'
+      }
+    ]
+
   }
 
   

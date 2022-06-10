@@ -1,5 +1,6 @@
 import { Sexo } from './sexo.interface';
 import { Raza } from './raza.interface';
+import { Tipo } from './tipo.interface';
 import { Cliente } from './cliente.interface';
 
 export interface Mascota {
@@ -8,7 +9,12 @@ export interface Mascota {
     apodoMascota   ?: string;
     sexo           ?: Sexo ;
     raza           ?: Raza ;
+    tipo           ?: Tipo ;
     fechaNacimiento?: string;
     lugarNacimiento?: string;
     cliente        ?: Cliente;
+    vacunasAlDia   ?: string;
+    poseeChip      ?: string;
+    operaciones    ?: string;
+    enfermedades   ?: string;
 }
