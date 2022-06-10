@@ -25,10 +25,11 @@
     "@fullcalendar/daygrid": "^4.4.2",
     "@fullcalendar/interaction": "^4.4.2",
     "@fullcalendar/timegrid": "^4.4.2",
+    "@sweetalert2/ngx-sweetalert2": "^11.0.0",
     "primeicons": "^4.1.0",
     "primeng": "^12.2.3",
     "rxjs": "~6.6.0",
-    "sweetalert2": "^11.1.7",
+    "sweetalert2": "^11.4.17",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },

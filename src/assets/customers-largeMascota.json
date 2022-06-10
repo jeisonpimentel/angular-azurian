@@ -1,0 +1,59 @@
+{
+    "data": [
+            {
+            "id": 100,
+            "nombre": "Coqui",
+            "apodo": "Coco",
+            "sexo": "Varón",
+            "raza": "Golden Retriever",
+            "fechaNacimiento": "22-06-2022",
+            "lugarNacimiento": "Santiago de Chile",
+            "estado": "Desactivada",
+            "severity": "danger"
+            },
+            {
+                "id": 102,
+                "nombre": "Bingo",
+                "apodo": "BinBin",
+                "sexo": "Varón",
+                "raza": "Cocker Spaniel",
+                "fechaNacimiento": "25/07/2021",
+                "lugarNacimiento": "Santiago de Chile",
+                "estado": "Activa",
+                "severity": "success"
+            },
+            {
+                "id": 104,
+                "nombre": "Thor",
+                "apodo": "Thor",
+                "sexo": "Varón",
+                "raza": "Maltés",
+                "fechaNacimiento": "21/03/2021",
+                "lugarNacimiento": "Santiago de Chile",
+                "estado": "Activa",
+                "severity": "success"
+            },
+            {
+                "id": 106,
+                "nombre": "Simba",
+                "apodo": "SimSimba",
+                "sexo": "Hembra",
+                "raza": "Setter Irlandés",
+                "fechaNacimiento": "12/05/2021",
+                "lugarNacimiento": "Santiago de Chile",
+                "estado": "Desactivada",
+                "severity": "danger"
+            },
+            {
+                "id": 108,
+                "nombre": "Rocky",
+                "apodo": "Roc",
+                "sexo": "Varón",
+                "raza": "Golden Retriever'",
+                "fechaNacimiento": "22/09/2021",
+                "lugarNacimiento": "Santiago de Chile",
+                "estado": "Activa",
+                "severity": "success"
+            }
+        ]
+}

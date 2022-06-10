@@ -6,6 +6,7 @@ import { Comuna } from '../../clientes/interfaces/comuna.interface';
 import { Mascota } from 'src/app/clientes/interfaces/mascota.interface';
 import { ReservaHora } from '../../clientes/interfaces/reservaHora.interface';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-reserva-hora',
@@ -54,12 +55,53 @@ export class FormReservaHoraComponent implements OnInit {
         nombreCliente: this.mascota.cliente?.nombre + ' ' + this.mascota.cliente?.segundo,
         apellidoCliente: this.mascota.cliente?.apellidoPaterno + ' ' + this.mascota.cliente?.apellidoMaterno,
         emailCliente: this.mascota.cliente?.email,
-        fechaNacimientoC: this.mascota.cliente?.fechaNacimiento
+        fechaNacimientoC: this.mascota.cliente?.fechaNacimiento,
+        motivoConsulta: '',
+        veterinario: '',
+        fechaConsulta: '',
+        region: '',
+        sucursal: ''
       }
     } else {
 
+      Swal.fire({
+        title: 'Error!',
+        text: 'Debe seleccionar una mascota para continuar...',
+        icon: 'error',
+        confirmButtonText: 'Oook!'
+      });
+
     }
   }
+
+  crearRegistroHora() : void {
+
+    console.log( this.reservaHora );
+
+    if( this.reservaHora.nombre?.length           == 0 || this.reservaHora.apellidoCliente?.length == 0 ||
+        this.reservaHora.comuna?.length           == 0 || this.reservaHora.emailCliente?.length    == 0 ||
+        this.reservaHora.fechaConsulta?.length    == 0 || this.reservaHora.fechaNacimiento?.length == 0 ||
+        this.reservaHora.fechaNacimientoC?.length == 0 || this.reservaHora.motivoConsulta?.length  == 0 ||
+        this.reservaHora.nombreCliente?.length    == 0 || this.reservaHora.raza?.length            == 0 ||
+        this.reservaHora.region?.length           == 0 || this.reservaHora.sexo?.length            == 0 || 
+        this.reservaHora.sucursal?.length         == 0 || this.reservaHora.veterinario?.length     == 0  ) {
+
+          Swal.fire({
+            title: 'Error!',
+            text: 'Debe completar todos los campos que son obligatorios!',
+            icon: 'error',
+            confirmButtonText: 'Oook!'
+          });
+
+        } else {
+
+          Swal.fire('Hora reservada para la mascota "' + 
+                    this.reservaHora.nombre + '" En la sucursal "' + 
+                    this.reservaHora.sucursal + '" con el veterinario "' + 
+                    this.reservaHora.veterinario + '" con fecha "' + 
+                    this.reservaHora.fechaConsulta + '"' );
+        } 
+  } 
 
   veterinariosList(): void {
 
@@ -202,39 +244,158 @@ export class FormReservaHoraComponent implements OnInit {
   }
 
   listadoMascotas(): void {
-    this.mascotas = [{
-      id:  new Date().getTime(),
-      nombreMascota: 'Cachupin',
-      apodoMascota: 'Cachu',
-      sexo: {
-        id: 1,
-        nombre: 'Varón'
-      },
-      raza: {
-        id: 1,
-        nombre: 'Labrador Retriever	'
-      }, 
-      fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
-      cliente: {
-        id: 1,
-        nombre: 'Jeison',
-        segundo: 'Luis',
-        apellidoPaterno: 'Pimentel',
-        apellidoMaterno: 'Alvis',
-        fechaNacimiento: '22/09/1996',
-        email: 'jeisonalvis10@gmail.com',
-        comuna: {
-          id: 1,
-          nombre: 'Santiago'
+    this.mascotas = [
+      {
+        id:  new Date().getTime(),
+        nombreMascota: 'Cachupin',
+        apodoMascota: 'Cachu',
+        sexo: {
+          nombre: 'Varón'
+        },
+        raza: {
+          nombre: 'Labrador Retriever	'
         }, 
-        region: {
+        fechaNacimiento: '22/09/2021',
+        lugarNacimiento: 'Santiago de Chile',
+        cliente: {
           id: 1,
-          nombre: 'Región Metropolitana'
+          nombre: 'Jeison',
+          segundo: 'Luis',
+          apellidoPaterno: 'Pimentel',
+          apellidoMaterno: 'Alvis',
+          fechaNacimiento: '22/09/1996',
+          email: 'jeisonalvis10@gmail.com',
+          comuna: {
+            id: 1,
+            nombre: 'Santiago Centro'
+          }, 
+          region: {
+            id: 1,
+            nombre: 'Región Metropolitana'
+          }
+        }
+      },
+      {
+        id:  new Date().getTime(),
+        nombreMascota: 'Bingo',
+        apodoMascota: 'BinBin',
+        sexo: {
+          nombre: 'Varón'
+        },
+        raza: {
+          nombre: 'Cocker Spaniel'
+        }, 
+        fechaNacimiento: '25/07/2021',
+        lugarNacimiento: 'Santiago de Chile',
+        cliente: {
+          id: 1,
+          nombre: 'Virginia',
+          segundo: 'Del Carmen',
+          apellidoPaterno: 'Casique',
+          apellidoMaterno: 'Casique',
+          fechaNacimiento: '07/03/1991',
+          email: 'virginia@gmail.com',
+          comuna: {
+            id: 1,
+            nombre: 'Ñuñoa'
+          }, 
+          region: {
+            id: 1,
+            nombre: 'Región Metropolitana'
+          }
+        }
+      },
+      {
+        id:  new Date().getTime(),
+        nombreMascota: 'Thor',
+        apodoMascota: 'Thor',
+        sexo: {
+          nombre: 'Varón'
+        },
+        raza: {
+          nombre: 'Maltés'
+        }, 
+        fechaNacimiento: '21/03/2021',
+        lugarNacimiento: 'Santiago de Chile',
+        cliente: {
+          id: 1,
+          nombre: 'Leonardo',
+          segundo: 'Jesus',
+          apellidoPaterno: 'Pérez',
+          apellidoMaterno: 'Guzman',
+          fechaNacimiento: '09/09/1993',
+          email: 'leoguzman@gmail.com',
+          comuna: {
+            id: 1,
+            nombre: 'Las Condes'
+          }, 
+          region: {
+            id: 1,
+            nombre: 'Región Metropolitana'
+          }
+        }
+      },
+      {
+        id:  new Date().getTime(),
+        nombreMascota: 'Simba',
+        apodoMascota: 'SimSimba',
+        sexo: {
+          nombre: 'Hembra'
+        },
+        raza: {
+          nombre: 'Setter Irlandés'
+        }, 
+        fechaNacimiento: '12/05/2021',
+        lugarNacimiento: 'Santiago de Chile',
+        cliente: {
+          id: 1,
+          nombre: 'Leonardo',
+          segundo: 'Jesus',
+          apellidoPaterno: 'Pérez',
+          apellidoMaterno: 'Guzman',
+          fechaNacimiento: '09/09/1993',
+          email: 'leoguzman@gmail.com',
+          comuna: {
+            id: 1,
+            nombre: 'Las Condes'
+          }, 
+          region: {
+            id: 1,
+            nombre: 'Región Metropolitana'
+          }
+        }
+      },
+      {
+        id:  new Date().getTime(),
+        nombreMascota: 'Rocky',
+        apodoMascota: 'Roc',
+        sexo: {
+          nombre: 'Varón'
+        },
+        raza: {
+          nombre: 'Golden Retriever'
+        }, 
+        fechaNacimiento: '22/09/2021',
+        lugarNacimiento: 'Santiago de Chile',
+        cliente: {
+          id: 1,
+          nombre: 'Jeison',
+          segundo: 'Luis',
+          apellidoPaterno: 'Pimentel',
+          apellidoMaterno: 'Alvis',
+          fechaNacimiento: '22/09/1996',
+          email: 'jeisonalvis10@gmail.com',
+          comuna: {
+            id: 1,
+            nombre: 'Santiago Centro'
+          }, 
+          region: {
+            id: 1,
+            nombre: 'Región Metropolitana'
+          }
         }
       }
-    }
-  ]
+    ]
   }
 
 }

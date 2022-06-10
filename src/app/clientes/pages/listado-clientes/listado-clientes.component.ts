@@ -5,6 +5,8 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api';
 import { Router } from '@angular/router';
 import { Mascota } from '../../interfaces/mascota.interface';
+import { Customer } from '../../interfaces/customer.interface';
+import { CustomerService } from '../../services/customerservice';
 
 @Component({
   selector: 'app-listado-clientes',
@@ -14,11 +16,10 @@ export class ListadoClientesComponent implements OnInit {
   // clientes!: Cliente[];
   totalRegistros: number = 0;
   paginaActual  : number = 0;
-  totalPorPagina: number = 4;
+  totalPorPagina: number = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100]
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // dataSource = this.clientes;
-
+  customers!: Customer[];
   mascotas: Mascota[] = [];
 
   constructor(
@@ -27,12 +28,17 @@ export class ListadoClientesComponent implements OnInit {
               private messageService: MessageService,
               private primengConfig: PrimeNGConfig,
               private router: Router
-              */) { }
+              */
+              private customerService: CustomerService,
+              private confirmationService: ConfirmationService,
+              private messageService: MessageService) { }
 
   ngOnInit(): void {
     // this.primengConfig.ripple = true;
     // this.listadoClientes();
     this.listadoMascotas();
+    this.customerService.getCustomersLarge().then(customers => this.customers = customers);
+
   }
 
   enviarParametros(id: number){
@@ -79,21 +85,21 @@ export class ListadoClientesComponent implements OnInit {
     // });
 }
 
-  listadoMascotas(): void {
-    this.mascotas = [{
-      id: 1,
+listadoMascotas(): void {
+  this.mascotas = 
+  [
+    {
+      id:  new Date().getTime(),
       nombreMascota: 'Cachupin',
       apodoMascota: 'Cachu',
       sexo: {
-        id: 1,
-        nombre: 'V'
+        nombre: 'Varón'
       },
       raza: {
-        id: 1,
         nombre: 'Labrador Retriever	'
       }, 
       fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
+      lugarNacimiento: 'Santiago de Chile',
       cliente: {
         id: 1,
         nombre: 'Jeison',
@@ -104,7 +110,7 @@ export class ListadoClientesComponent implements OnInit {
         email: 'jeisonalvis10@gmail.com',
         comuna: {
           id: 1,
-          nombre: 'Santiago'
+          nombre: 'Santiago Centro'
         }, 
         region: {
           id: 1,
@@ -113,30 +119,28 @@ export class ListadoClientesComponent implements OnInit {
       }
     },
     {
-      id: 1,
-      nombreMascota: 'Cachupin',
-      apodoMascota: 'Cachu',
+      id:  new Date().getTime(),
+      nombreMascota: 'Bingo',
+      apodoMascota: 'BinBin',
       sexo: {
-        id: 1,
-        nombre: 'V'
+        nombre: 'Varón'
       },
       raza: {
-        id: 1,
-        nombre: 'Labrador Retriever	'
+        nombre: 'Cocker Spaniel'
       }, 
-      fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
+      fechaNacimiento: '25/07/2021',
+      lugarNacimiento: 'Santiago de Chile',
       cliente: {
         id: 1,
-        nombre: 'Jeison',
-        segundo: 'Luis',
-        apellidoPaterno: 'Pimentel',
-        apellidoMaterno: 'Alvis',
-        fechaNacimiento: '22/09/1996',
-        email: 'jeisonalvis10@gmail.com',
+        nombre: 'Virginia',
+        segundo: 'Del Carmen',
+        apellidoPaterno: 'Casique',
+        apellidoMaterno: 'Casique',
+        fechaNacimiento: '07/03/1991',
+        email: 'virginia@gmail.com',
         comuna: {
           id: 1,
-          nombre: 'Santiago'
+          nombre: 'Ñuñoa'
         }, 
         region: {
           id: 1,
@@ -145,30 +149,28 @@ export class ListadoClientesComponent implements OnInit {
       }
     },
     {
-      id: 1,
-      nombreMascota: 'Cachupin',
-      apodoMascota: 'Cachu',
+      id:  new Date().getTime(),
+      nombreMascota: 'Thor',
+      apodoMascota: 'Thor',
       sexo: {
-        id: 1,
-        nombre: 'V'
+        nombre: 'Varón'
       },
       raza: {
-        id: 1,
-        nombre: 'Labrador Retriever	'
+        nombre: 'Maltés'
       }, 
-      fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
+      fechaNacimiento: '21/03/2021',
+      lugarNacimiento: 'Santiago de Chile',
       cliente: {
         id: 1,
-        nombre: 'Jeison',
-        segundo: 'Luis',
-        apellidoPaterno: 'Pimentel',
-        apellidoMaterno: 'Alvis',
-        fechaNacimiento: '22/09/1996',
-        email: 'jeisonalvis10@gmail.com',
+        nombre: 'Leonardo',
+        segundo: 'Jesus',
+        apellidoPaterno: 'Pérez',
+        apellidoMaterno: 'Guzman',
+        fechaNacimiento: '09/09/1993',
+        email: 'leoguzman@gmail.com',
         comuna: {
           id: 1,
-          nombre: 'Santiago'
+          nombre: 'Las Condes'
         }, 
         region: {
           id: 1,
@@ -177,30 +179,28 @@ export class ListadoClientesComponent implements OnInit {
       }
     },
     {
-      id: 1,
-      nombreMascota: 'Cachupin',
-      apodoMascota: 'Cachu',
+      id:  new Date().getTime(),
+      nombreMascota: 'Simba',
+      apodoMascota: 'SimSimba',
       sexo: {
-        id: 1,
-        nombre: 'V'
+        nombre: 'Hembra'
       },
       raza: {
-        id: 1,
-        nombre: 'Labrador Retriever	'
+        nombre: 'Setter Irlandés'
       }, 
-      fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
+      fechaNacimiento: '12/05/2021',
+      lugarNacimiento: 'Santiago de Chile',
       cliente: {
         id: 1,
-        nombre: 'Jeison',
-        segundo: 'Luis',
-        apellidoPaterno: 'Pimentel',
-        apellidoMaterno: 'Alvis',
-        fechaNacimiento: '22/09/1996',
-        email: 'jeisonalvis10@gmail.com',
+        nombre: 'Leonardo',
+        segundo: 'Jesus',
+        apellidoPaterno: 'Pérez',
+        apellidoMaterno: 'Guzman',
+        fechaNacimiento: '09/09/1993',
+        email: 'leoguzman@gmail.com',
         comuna: {
           id: 1,
-          nombre: 'Santiago'
+          nombre: 'Las Condes'
         }, 
         region: {
           id: 1,
@@ -209,19 +209,17 @@ export class ListadoClientesComponent implements OnInit {
       }
     },
     {
-      id: 1,
-      nombreMascota: 'Cachupin',
-      apodoMascota: 'Cachu',
+      id:  new Date().getTime(),
+      nombreMascota: 'Rocky',
+      apodoMascota: 'Roc',
       sexo: {
-        id: 1,
-        nombre: 'V'
+        nombre: 'Varón'
       },
       raza: {
-        id: 1,
-        nombre: 'Labrador Retriever	'
+        nombre: 'Golden Retriever'
       }, 
       fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
+      lugarNacimiento: 'Santiago de Chile',
       cliente: {
         id: 1,
         nombre: 'Jeison',
@@ -232,173 +230,86 @@ export class ListadoClientesComponent implements OnInit {
         email: 'jeisonalvis10@gmail.com',
         comuna: {
           id: 1,
-          nombre: 'Santiago'
+          nombre: 'Santiago Centro'
         }, 
         region: {
           id: 1,
           nombre: 'Región Metropolitana'
         }
       }
-    },
-    {
-      id: 1,
-      nombreMascota: 'Cachupin',
-      apodoMascota: 'Cachu',
-      sexo: {
-        id: 1,
-        nombre: 'V'
-      },
-      raza: {
-        id: 1,
-        nombre: 'Labrador Retriever	'
-      }, 
-      fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
-      cliente: {
-        id: 1,
-        nombre: 'Jeison',
-        segundo: 'Luis',
-        apellidoPaterno: 'Pimentel',
-        apellidoMaterno: 'Alvis',
-        fechaNacimiento: '22/09/1996',
-        email: 'jeisonalvis10@gmail.com',
-        comuna: {
-          id: 1,
-          nombre: 'Santiago'
-        }, 
-        region: {
-          id: 1,
-          nombre: 'Región Metropolitana'
-        }
-      }
-    },
-    {
-      id: 1,
-      nombreMascota: 'Cachupin',
-      apodoMascota: 'Cachu',
-      sexo: {
-        id: 1,
-        nombre: 'V'
-      },
-      raza: {
-        id: 1,
-        nombre: 'Labrador Retriever	'
-      }, 
-      fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
-      cliente: {
-        id: 1,
-        nombre: 'Jeison',
-        segundo: 'Luis',
-        apellidoPaterno: 'Pimentel',
-        apellidoMaterno: 'Alvis',
-        fechaNacimiento: '22/09/1996',
-        email: 'jeisonalvis10@gmail.com',
-        comuna: {
-          id: 1,
-          nombre: 'Santiago'
-        }, 
-        region: {
-          id: 1,
-          nombre: 'Región Metropolitana'
-        }
-      }
-    },
-    {
-      id: 1,
-      nombreMascota: 'Cachupin',
-      apodoMascota: 'Cachu',
-      sexo: {
-        id: 1,
-        nombre: 'V'
-      },
-      raza: {
-        id: 1,
-        nombre: 'Labrador Retriever	'
-      }, 
-      fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
-      cliente: {
-        id: 1,
-        nombre: 'Jeison',
-        segundo: 'Luis',
-        apellidoPaterno: 'Pimentel',
-        apellidoMaterno: 'Alvis',
-        fechaNacimiento: '22/09/1996',
-        email: 'jeisonalvis10@gmail.com',
-        comuna: {
-          id: 1,
-          nombre: 'Santiago'
-        }, 
-        region: {
-          id: 1,
-          nombre: 'Región Metropolitana'
-        }
-      }
-    },
-    {
-      id: 1,
-      nombreMascota: 'Cachupin',
-      apodoMascota: 'Cachu',
-      sexo: {
-        id: 1,
-        nombre: 'V'
-      },
-      raza: {
-        id: 1,
-        nombre: 'Labrador Retriever	'
-      }, 
-      fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
-      cliente: {
-        id: 1,
-        nombre: 'Jeison',
-        segundo: 'Luis',
-        apellidoPaterno: 'Pimentel',
-        apellidoMaterno: 'Alvis',
-        fechaNacimiento: '22/09/1996',
-        email: 'jeisonalvis10@gmail.com',
-        comuna: {
-          id: 1,
-          nombre: 'Santiago'
-        }, 
-        region: {
-          id: 1,
-          nombre: 'Región Metropolitana'
-        }
-      }
-    },
-    {
-      id: 1,
-      nombreMascota: 'Cachupin',
-      apodoMascota: 'Cachu',
-      sexo: {
-        id: 1,
-        nombre: 'V'
-      },
-      raza: {
-        id: 1,
-        nombre: 'Labrador Retriever	'
-      }, 
-      fechaNacimiento: '22/09/2021',
-      lugarNacimiento: 'Santiago',
-      cliente: {
-        id: 1,
-        nombre: 'Jeison',
-        segundo: 'Luis',
-        apellidoPaterno: 'Pimentel',
-        apellidoMaterno: 'Alvis',
-        fechaNacimiento: '22/09/1996',
-        email: 'jeisonalvis10@gmail.com',
-        comuna: {
-          id: 1,
-          nombre: 'Santiago'
-        }, 
-        region: {
-          id: 1,
-          nombre: 'Región Metropolitana'
-        }
-      }
-    }]
+    }
+  ]
+}
+
+  editarMascota( customer : Customer ) : void {
+    
   }
+
+  desactivarMascota( id: number, event: Event) : void {
+    this.confirmationService.confirm({
+      target: event.target!,
+      message: '¿Está seguro que desea desactivar a la mascota?',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+          this.desactiva(id);
+      },
+      reject: () => {
+          this.messageService.add({severity:'error', summary:'Información', detail:'Operación cancelada'});
+      }
+    });
+  }
+
+  desactiva( id: number ): void {
+
+    let customer: Customer | undefined = this.customers.find( custo => custo.id == id );
+
+    let custo : Customer = {
+      id: customer?.id,
+      nombre: customer?.nombre,
+      apodo: customer?.apodo,
+      sexo: customer?.sexo,
+      raza: customer?.raza,
+      fechaNacimiento: customer?.fechaNacimiento,
+      lugarNacimiento: customer?.lugarNacimiento,
+      estado: 'Desactivada',
+      severity: 'danger'
+    }
+
+    this.customers = this.customers.filter(( item) => item.id !== customer?.id );
+    this.customers.push( custo ); 
+  }
+
+  activarMascota( id: number, event: Event ): void {
+    this.confirmationService.confirm({
+      target: event.target!,
+      message: '¿Está seguro que desea activar a la mascota?',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+          this.activa(id);
+      },
+      reject: () => {
+          this.messageService.add({severity:'error', summary:'Información', detail:'Operación cancelada'});
+      }
+    });
+  }
+
+  activa( id: number ){
+    let customer: Customer | undefined = this.customers.find( custo => custo.id == id );
+
+    let custo : Customer = {
+      id: customer?.id,
+      nombre: customer?.nombre,
+      apodo: customer?.apodo,
+      sexo: customer?.sexo,
+      raza: customer?.raza,
+      fechaNacimiento: customer?.fechaNacimiento,
+      lugarNacimiento: customer?.lugarNacimiento,
+      estado: 'Activa',
+      severity: 'success'
+    }
+
+    this.customers = this.customers.filter(( item) => item.id !== customer?.id );
+    this.customers.push( custo ); 
+  }
+
 }

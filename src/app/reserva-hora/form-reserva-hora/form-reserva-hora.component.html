@@ -135,7 +135,7 @@
             <mat-label>Seleccione Veterinari@</mat-label>
             <mat-select [(ngModel)]="reservaHora.veterinario"
                         required>
-              <mat-option *ngFor="let v of veterinarios" [value]="v">
+              <mat-option *ngFor="let v of veterinarios" [value]="v.nombre">
                 {{ v.nombre }} 
               </mat-option>
             </mat-select>
@@ -159,7 +159,7 @@ fxLayout.xs="column">
       <mat-label>Seleccione Región</mat-label>
       <mat-select [(ngModel)]="reservaHora.region"
                   required>
-        <mat-option *ngFor="let r of regiones" [value]="r">
+        <mat-option *ngFor="let r of regiones" [value]="r.nombre">
           {{ r.nombre }} 
         </mat-option>
       </mat-select>
@@ -174,7 +174,7 @@ fxLayout.xs="column">
       <mat-label>Seleccione Comuna</mat-label>
       <mat-select [(ngModel)]="reservaHora.comuna"
                   required>
-        <mat-option *ngFor="let c of comunas" [value]="c">
+        <mat-option *ngFor="let c of comunas" [value]="c.nombre">
           {{ c.nombre }} 
         </mat-option>
       </mat-select>
@@ -184,7 +184,7 @@ fxLayout.xs="column">
       <mat-label>Seleccione Sucursal</mat-label>
       <mat-select [(ngModel)]="reservaHora.sucursal"
                   required>
-        <mat-option *ngFor="let s of sucursales" [value]="s">
+        <mat-option *ngFor="let s of sucursales" [value]="s.nombre">
           {{ s.nombre }} 
         </mat-option>
       </mat-select>
@@ -194,7 +194,7 @@ fxLayout.xs="column">
 <br>
 
 <div class="row">
-    <button class="btn btn-block btn-success" >
+    <button class="btn btn-block btn-success" (click)="crearRegistroHora()">
         <mat-icon>edit</mat-icon>
         Agendar Hora
     </button>

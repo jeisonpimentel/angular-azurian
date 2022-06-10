@@ -9,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { BuscarClienteComponent } from './pages/buscar-cliente/buscar-cliente.component'; 
+import { CustomerService } from './services/customerservice';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { BuscarClienteComponent } from './pages/buscar-cliente/buscar-cliente.co
     RouterModule
   ], exports:[
     RouterModule
+  ], providers: [
+    CustomerService,
   ]
 })
 export class ClientesModule { }
