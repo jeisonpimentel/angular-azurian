@@ -1,0 +1,108 @@
+<h1>Registro Usuario</h1>
+
+<div 
+   class="container"
+   fxLayout="row" 
+   fxLayout.md="column">
+
+    <div fxFlex="100" fxLayout="column">
+
+      <mat-divider></mat-divider>
+      <h3 class="bg-primary text-white">Registro</h3>
+      <p>Completa el siguiente formulario para registrarte en nuestra App!</p>
+      <mat-divider></mat-divider>
+
+        <!--Datos nuevo usuario-->
+
+        <div fxLayout="row" 
+             fxLayoutGap="20px"
+             fxLayout.xs="column">
+          <mat-form-field fxFlex="100">
+            <mat-label>Primer Nombre</mat-label>
+            <input matInput
+                  type="text" required>
+          </mat-form-field>  
+
+          <mat-form-field fxFlex="100">
+            <mat-label>Segundo Nombre</mat-label>
+            <input matInput
+                  type="text" required>
+          </mat-form-field>  
+        </div>
+
+        <div fxLayout="row" 
+             fxLayoutGap="20px"
+             fxLayout.xs="column">
+
+            <mat-form-field fxFlex="100"  fxLayout.xs="column">
+                <mat-label>Apellido Paterno</mat-label>
+                <input matInput
+                       type="text" required>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="100">
+                <mat-label>Apellido Materno</mat-label>
+                <input matInput
+                       type="text" required>
+            </mat-form-field>   
+        </div>  
+
+        <div fxLayout="row" 
+             fxLayoutGap="20px"
+             fxLayout.xs="column">
+
+            <mat-form-field fxFlex="100"  fxLayout.xs="column">
+                <mat-label>Email</mat-label>
+                <input matInput
+                        type="text" required email>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                 <input
+                        required
+                        matInput [matDatepicker]="pickers">
+                <mat-datepicker-toggle matSuffix [for]="pickers"></mat-datepicker-toggle>
+                <mat-datepicker #pickers></mat-datepicker>
+              </mat-form-field>
+        </div> 
+
+        <div fxLayout="row" 
+             fxLayoutGap="20px"
+             fxLayout.xs="column">
+
+             <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+              <mat-label>Seleccione Región</mat-label>
+              <mat-select [(ngModel)]="cliente.region" name="regiones" 
+                          #comuna="ngModel"
+                          required>
+                <mat-option *ngFor="let r of regiones" [value]="r">
+                  {{ r.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+              <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+                <mat-label>Seleccione Comuna</mat-label>
+                <mat-select [(ngModel)]="cliente.comuna" name="comunas" 
+                            #comuna="ngModel"
+                            required>
+                  <mat-option *ngFor="let comuna of comunas" [value]="comuna">
+                    {{ comuna.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div> 
+
+        <br>      
+        <br>
+        <br>
+
+        <div class="row">
+            <button class="btn btn-block btn-success">
+                <mat-icon>edit</mat-icon>Crear Cuenta
+            </button>
+            <span class="spacer"></span>
+        </div>
+    </div>
+</div>
