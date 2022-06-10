@@ -1,8 +1,6 @@
 <h1>
-    {{ (mascota.id) ? 'Actualizar Hora' : 'Reservar Hora' }} 
-    <small>{{ mascota.nombreMascota }}</small>
+    Reservar hora
 </h1>
-
 
 <div 
    class="container"
@@ -24,13 +22,14 @@
             <mat-select [(ngModel)]="mascota"
                         required>
               <mat-option *ngFor="let m of mascotas" [value]="m">
-                {{ m?.nombreMascota + ' - ' + m?.apodoMascota + ' - ' + m.raza?.nombre}} 
+                {{ m?.nombreMascota + ' - ' + m?.apodoMascota + ' - ' + m.raza?.nombre + ' - ' + m?.fechaNacimiento + ' - ' + m?.lugarNacimiento }} 
               </mat-option>
             </mat-select>
           </mat-form-field>  
 
-        <div fxFlex="100">
+        <div fxFlex="24">
             <span class="p-buttonset">
+
                 <button pButton type="button" 
                 label="Cargar Datos de Mascota" 
                 icon="pi-align-right" iconPos="right" 
@@ -197,7 +196,7 @@ fxLayout.xs="column">
 <div class="row">
     <button class="btn btn-block btn-success" >
         <mat-icon>edit</mat-icon>
-        {{ (mascota.id) ? 'Actualizar Hora' : 'Agendar Hora' }}
+        Agendar Hora
     </button>
     <span class="spacer"></span>
 </div>
