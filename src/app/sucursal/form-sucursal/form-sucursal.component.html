@@ -1,1 +1,72 @@
-<p>form-sucursal works!</p>
+<div 
+   class="container"
+   fxLayout="row" 
+   fxLayout.md="column">
+
+    <div fxFlex="100" fxLayout="column">
+
+      <mat-divider></mat-divider>
+      <h3 class="bg-primary text-white">Crear Sucursal</h3>
+      <mat-divider></mat-divider>
+
+      <mat-form-field fxFlex="100"  fxLayout.xs="column">
+        <mat-label>Nombre Sucursal</mat-label>
+        <input matInput
+                type="text">
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100"  fxLayout.xs="column">
+        <mat-label>Encargado Sucursal</mat-label>
+        <input matInput
+                type="text">
+    </mat-form-field>
+
+
+    <mat-form-field fxFlex="100"  fxLayout.xs="column">
+        <mat-label>Email</mat-label>
+        <input matInput
+                type="text"
+                [(ngModel)]="cliente.email"
+                required email>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100"  fxLayout.xs="column">
+        <mat-label>Telefono Contacto</mat-label>
+        <input matInput
+                type="text"
+                required>
+    </mat-form-field>
+
+
+
+
+    <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+        <mat-label>Seleccione Región</mat-label>
+        <mat-select [(ngModel)]="reservaHora.region"
+                    required>
+          <mat-option *ngFor="let r of regiones" [value]="r">
+            {{ r.nombre }} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>  
+
+    <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+        <mat-label>Seleccione Comuna</mat-label>
+        <mat-select [(ngModel)]="reservaHora.comuna"
+                    required>
+          <mat-option *ngFor="let c of comunas" [value]="c">
+            {{ c.nombre }} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>  
+   
+
+
+  <div class="row">
+    <button class="btn btn-block btn-success" 
+   >
+        <mat-icon >edit</mat-icon>
+        Crear Sucursal
+    </button>
+    <span class="spacer"></span>
+</div>
