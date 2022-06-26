@@ -1,1 +1,103 @@
-<p>create-adopcion works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 class="p-3 m-3" style="text-align: center;">
+        Formulario Dar en Adopción</h1>
+
+<div class="container" fxLayout="row" fxLayout.md="column">
+    <div fxFlex="100" fxLayout="column">      
+      <p>Completa el siguiente formulario para dar en adopción a una mascota.</p>
+      <p>Nos preocuparemos de encontrarle un nuevo hogar a tu mascota.</p>
+      <br>
+      
+
+        <!--campos-->
+        <div>
+            <div class="container">
+                <form class="">
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-xs-4 col-form-label">Nombre de Mascota</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="inputName" id="inputName" placeholder="Nombre de mascota">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-xs-4 col-form-label">Tamaño</label>
+                        <div class="col-xs-8">
+                            <select name="tamaño" id="tamaño">
+                                <option value="">-Seleccione-</option>
+                                <option value="">Pequeño</option>
+                                <option value="">Mediano</option>
+                                <option value="">Grande</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-xs-4 col-form-label">Tipo de Mascota</label>
+                        <div class="col-xs-8">
+                            <select name="tipo" id="tipo">
+                                <option value="">-Seleccione-</option>
+                                <option value="">Perro</option>
+                                <option value="">Gato</option>
+                                <option value="">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-xs-4 col-form-label">Fotografía</label>
+                        <div class="col-xs-8">
+                            <input type="file" class="form-control" name="foto" id="foto">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-xs-4 col-form-label">Edad</label>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" name="año" id="año" placeholder="Ejemplo: 1 año y 7 meses">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-xs-4 col-form-label">Comuna</label>
+                        <div class="col-xs-8">
+                            <select name="tipo" id="tipo">
+                                <option value="">-Seleccione-</option>
+                                <option value="">Santiago</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-xs-4 col-form-label">Descripción (Máx. 50 carácteres)</label>
+                        <div class="col-xs-8">
+                            <input type="textarea" class="form-control" name="descripcion" id="descripcion" placeholder="Cuéntanos por qué quieres dar a tu mascota en adopción...">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+          
+        <br>
+        <div style="text-align: center;">
+            <div class="p-3">
+                <button class="btn btn-success" (click)="crearAdopcion()">
+                    Publicar Adopción
+                </button>
+            </div>
+            <div class="p-3">            
+                <button href="/petApp" class="btn btn-primary">
+                    Volver al Home
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+</body>
+</html>
