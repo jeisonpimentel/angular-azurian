@@ -1,1 +1,47 @@
-<p>form-adopcion works!</p>
+<h1>Formulario de Adopción</h1>
+
+<div class="container" fxLayout="row" fxLayout.md="column">
+    <div fxFlex="100" fxLayout="column">      
+      <p>Completa el siguiente formulario para adoptar a esta mascota.</p>
+      <p>Al finalizar el proceso nos comunicaremos contigo, es importante que tus datos de contacto</p>
+      <p>se encuentren <b>actualizados</b>.</p>
+      <br>
+      <p>Revisa tu información a continuación:</p>
+
+        <!--campos-->
+        <div>
+            <div class="container">
+                <form>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-xs-4 col-form-label">Nombre</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="inputName" id="inputName" placeholder="Nombre Apellido" readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-xs-4 col-form-label">Número de Teléfono</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="inputName" id="telefono" value="912345678">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputName" class="col-xs-4 col-form-label">Correo Electrónico</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="correo" id="correo" value="micorreo@correo.cl">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+          
+        <br>
+
+        <div class="row">
+            <button class="btn btn-block btn-success" (click)="crearAdopcion()">
+                Enviar mi solicitud
+            </button>
+            <span class="spacer"></span>
+        </div>
+    </div>
+</div>

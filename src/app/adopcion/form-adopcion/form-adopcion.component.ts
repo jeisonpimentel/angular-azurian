@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-adopcion',
@@ -11,4 +12,8 @@ export class FormAdopcionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  crearAdopcion() : void {
+    Swal.fire('Hemos recibido tu solicitud, pronto nos comunicaremos contigo!');
+        
+  }
 }
