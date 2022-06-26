@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from '../shared/home/home.component';
 import { FormAdopcionComponent } from './form-adopcion/form-adopcion.component';
 import { ListAdopcionComponent } from './list-adopcion/list-adopcion.component';
+import { CreateAdopcionComponent } from './create-adopcion/create-adopcion.component';
 
 const routes: Routes = [
   {
@@ -11,12 +12,16 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { 
-        path: 'crear-adopcion',
+        path: 'solicita-adopcion',
         component: FormAdopcionComponent
       },
       { 
         path: 'ver-adopciones',
         component: ListAdopcionComponent
+      },
+      { 
+        path: 'crear-adopcion',
+        component: CreateAdopcionComponent
       },
 
     ]
