@@ -1,0 +1,56 @@
+<div>
+    <p-table [value]="customers">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Mascota</th>
+                <th>Vacunas al Día</th>
+                <th>Motivo Consulta</th>
+                <th>Es emergencia</th>
+                <th>Veterinario asignado</th>
+                <th>Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer>
+            <tr>
+                <td>
+                    <p-avatar
+                    icon="pi pi-user"
+                    styleClass="p-mr-2"
+                    [style]="{'background-color': '#9c27b0', 'color': '#ffffff'}"
+                    shape="circle"
+                ></p-avatar>
+                    {{customer.mascota}}
+                </td>
+                <td>
+                    <span class="image-text">{{ customer.vacunasAlDia }}</span>
+                </td>
+                <td>
+                    <span class="image-text">{{ customer.motivoConsulta }}</span>
+                </td>
+                
+                <td>
+                    <span class="image-text"> {{ customer.isEmergencia }}</span>
+                </td>
+                <td>
+                    <span><p-badge value="{{ customer.veterinario }}" severity="{{customer.severity}}"></p-badge></span>
+                </td>
+                <td>
+                    <p-chip *ngIf=" customer.veterinario === 'Sin asignación'" label="" icon="pi pi-pencil" (click)="asignar( customer.id )"></p-chip>
+                    <p-chip *ngIf="customer.veterinario !== 'Sin asignación'" label="" icon="pi pi-times" (click)="confirm(customer.id, $event )"></p-chip>
+                </td>
+
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <p-toast></p-toast>
+    <p-confirmPopup></p-confirmPopup>
+
+    <mat-paginator [length]="totalRegistros"
+        [pageSize]="totalPorPagina"
+        [pageIndex]="paginaActual"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="paginar( $event )"
+        showFirstLastButtons>
+    </mat-paginator>
+</div>
