@@ -1,152 +1,147 @@
 <mat-sidenav-container fullscreen>
-    <mat-sidenav #sidenav mode="side">
-        <mat-toolbar color="primary">
+  <mat-sidenav #sidenav mode="side">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
 
-            <button mat-icon-button
-                    (click)="sidenav.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
+      <span>Menú</span>
+    </mat-toolbar>
 
-            <span>Menú</span>
+    <mat-nav-list>
+      <a routerLink="./crear-mascota" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>add</mat-icon>
+        <span>Crear Mascotas</span>
+      </a>
 
-        </mat-toolbar>
+      <a
+        routerLink="./listado-mascotas"
+        mat-list-item
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon mat-list-icon>label</mat-icon>
+        <span>Listado de Mascotas</span>
+      </a>
 
-        <mat-nav-list>
-            <a routerLink="./crear-mascota"
-               mat-list-item
-               (click)="sidenav.toggle()">
-               <mat-icon mat-list-icon>add</mat-icon>
-               <span>Crear Mascotas</span>
-            </a>
-
-            <a routerLink="./listado-mascotas" mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>label</mat-icon>
-                <span>Listado de Mascotas</span>
-            </a>
-
-            <!-- <a routerLink="./buscar-mascota" mat-list-item
+      <!-- <a routerLink="./buscar-mascota" mat-list-item
                 (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>search</mat-icon>
                 <span>Buscar Mascota</span>
             </a> -->
 
-            <a routerLink="./ver-adopciones"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>pets</mat-icon>
-                <span>Adopciones</span>
-            </a>
+      <a routerLink="./ver-adopciones" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>pets</mat-icon>
+        <span>Adopciones</span>
+      </a>
 
-            <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
 
-            
+      <a
+        routerLink="./crear-veterinario"
+        mat-list-item
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon mat-list-icon>dashboard</mat-icon>
+        <span>Crear Veterinario</span>
+      </a>
 
-            
+      <a
+        routerLink="./listado-veterinarios"
+        mat-list-item
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon mat-list-icon>list</mat-icon>
+        <span>Listado de Veterinarios</span>
+      </a>
 
-            <a routerLink="./crear-veterinario"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>dashboard</mat-icon>
-                <span>Crear Veterinario</span>
-            </a>
+      <mat-divider></mat-divider>
 
-            <a routerLink="./listado-veterinarios"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>list</mat-icon>
-                <span>Listado de Veterinarios</span>
-            </a>
+      <a routerLink="./reserva-hora" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>calendar_today</mat-icon>
+        <span>Reservar Hora</span>
+      </a>
 
-            <mat-divider></mat-divider>
+      <a
+        routerLink="./horas-agendadas"
+        mat-list-item
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon mat-list-icon>calendar_view_day</mat-icon>
+        <span>Horas agendadas</span>
+      </a>
 
-            <a routerLink="./reserva-hora"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>calendar_today</mat-icon>
-                <span>Reservar Hora</span>
-            </a>
+      <mat-divider></mat-divider>
 
-            <a routerLink="./horas-agendadas"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>calendar_view_day</mat-icon>
-                <span>Horas agendadas</span>
-            </a>
+      <a routerLink="./crear-sucursal" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>create_new_folder</mat-icon>
+        <span>Crear Sucursal</span>
+      </a>
 
-            <mat-divider></mat-divider>
+      <a
+        routerLink="./listado-sucursal"
+        mat-list-item
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon mat-list-icon>format_list_numbered</mat-icon>
+        <span>Listado de Sucursales</span>
+      </a>
 
-            <a routerLink="./crear-sucursal"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>create_new_folder</mat-icon>
-                <span>Crear Sucursal</span>
-            </a>
+      <mat-divider></mat-divider>
 
-            <a routerLink="./listado-sucursal"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>format_list_numbered</mat-icon>
-                <span>Listado de Sucursales</span>
-            </a>
+      <a routerLink="./app-extravio" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>pets</mat-icon>
+        <span>Extravio De Mascotas</span>
+      </a>
 
-            <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
 
-            <a routerLink="./ver-perfil"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>pets</mat-icon>
-                <span>Mantenedor Mascotas</span>
-            </a>
+      <a
+        routerLink="./consulta-veterinaria"
+        mat-list-item
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon mat-list-icon>calendar_view_day</mat-icon>
+        <span>Consulta Veterinaria</span>
+      </a>
 
-            <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
 
-            <a routerLink="./consulta-veterinaria"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>calendar_view_day</mat-icon>
-                <span>Consulta Veterinaria</span>
-            </a>
+      <a
+        routerLink="./mantenedor-usuario"
+        mat-list-item
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon mat-list-icon>supervisor_account</mat-icon>
+        <span>Perfil Usuario</span>
+      </a>
 
-            <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
 
-            <a routerLink="./mantenedor-usuario"
-                mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>supervisor_account</mat-icon>
-                <span>Perfil Usuario</span>
-            </a>
+  <mat-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
 
-            <mat-divider></mat-divider>
-        </mat-nav-list>
-    </mat-sidenav>
+    <span class="spacer"></span>
 
-    <mat-toolbar>
-        <button mat-icon-button
-                (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
+    <span>Bienvenido</span>
 
-        <span class="spacer"></span>
+    <button mat-button color="primary" *ngIf="!isLogin; else loggedOut">
+      <mat-icon mat-list-icon>logout</mat-icon>
+      Logout
+    </button>
 
-        <span >Bienvenido</span>
+    <ng-template #loggedOut>
+      <a routerLink="./login" mat-button color="primary">
+        <mat-icon mat-list-icon>login</mat-icon>
+        Login
+      </a>
+    </ng-template>
+  </mat-toolbar>
 
-        <button mat-button color="primary" 
-                *ngIf="!isLogin; else loggedOut">
-        <mat-icon mat-list-icon>logout</mat-icon>
-            Logout
-        </button>
-
-        <ng-template #loggedOut>
-            <a routerLink="./login" mat-button color="primary">
-            <mat-icon mat-list-icon>login</mat-icon>
-                Login
-            </a>
-        </ng-template>
-    </mat-toolbar>
-
-    <div class="container">
-        <router-outlet></router-outlet>
-    </div>  
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </mat-sidenav-container>
-
