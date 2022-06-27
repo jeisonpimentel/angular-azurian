@@ -11,5 +11,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  myFunc(){
+    console.log("function called");
+    var inputValue = (<HTMLInputElement>document.getElementById("login-username")).value;
+    if(inputValue===""){
+      alert("ingresar correo")
+    }
+  }
 
 }

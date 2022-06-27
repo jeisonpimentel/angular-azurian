@@ -1,31 +1,29 @@
 <mat-sidenav-container fullscreen>
-    <mat-sidenav #sidenav mode="side">
-        <mat-toolbar color="primary">
+  <mat-sidenav #sidenav mode="side">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
 
-            <button mat-icon-button
-                    (click)="sidenav.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
+      <span>Menú</span>
+    </mat-toolbar>
 
-            <span>Menú</span>
+    <mat-nav-list>
+      <a routerLink="./crear-mascota" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>add</mat-icon>
+        <span>Crear Mascotas</span>
+      </a>
 
-        </mat-toolbar>
+      <a
+        routerLink="./listado-mascotas"
+        mat-list-item
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon mat-list-icon>label</mat-icon>
+        <span>Listado de Mascotas</span>
+      </a>
 
-        <mat-nav-list>
-            <a routerLink="./crear-mascota"
-               mat-list-item
-               (click)="sidenav.toggle()">
-               <mat-icon mat-list-icon>add</mat-icon>
-               <span>Crear Mascotas</span>
-            </a>
-
-            <a routerLink="./listado-mascotas" mat-list-item
-                (click)="sidenav.toggle()">
-                <mat-icon mat-list-icon>label</mat-icon>
-                <span>Listado de Mascotas</span>
-            </a>
-
-            <!-- <a routerLink="./buscar-mascota" mat-list-item
+      <!-- <a routerLink="./buscar-mascota" mat-list-item
                 (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>search</mat-icon>
                 <span>Buscar Mascota</span>
@@ -147,4 +145,3 @@
         <router-outlet></router-outlet>
     </div>  
 </mat-sidenav-container>
-

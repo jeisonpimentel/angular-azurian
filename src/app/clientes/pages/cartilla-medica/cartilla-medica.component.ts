@@ -58,7 +58,6 @@ export class CartillaMedicaComponent implements OnInit {
   }
 
 
-
   confirm(id: number, event: Event) {
     this.confirmationService.confirm({
         target: event.target!,
