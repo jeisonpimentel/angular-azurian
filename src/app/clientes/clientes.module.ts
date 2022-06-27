@@ -11,13 +11,18 @@ import { RouterModule } from '@angular/router';
 import { BuscarClienteComponent } from './pages/buscar-cliente/buscar-cliente.component'; 
 import { CustomerService } from './services/customerservice';
 import { FormularioUsuarioComponent } from './pages/usuario-formulario/formulario-usuario/formulario-usuario.component';
+import { ConsultaVeterinariaComponent } from './pages/consulta-veterinaria/consulta-veterinaria/consulta-veterinaria.component';
+import { ListadoConsultaVeterinariaComponent } from './pages/consulta-veterinaria/listado-consulta-veterinaria/listado-consulta-veterinaria.component';
+import { CustomerServiceConsulta } from './services/costumerserviceconsulta';
 
 @NgModule({
   declarations: [
     ListadoClientesComponent,
     FormularioComponent,
     BuscarClienteComponent,
-    FormularioUsuarioComponent
+    FormularioUsuarioComponent,
+    ConsultaVeterinariaComponent,
+    ListadoConsultaVeterinariaComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +35,7 @@ import { FormularioUsuarioComponent } from './pages/usuario-formulario/formulari
     RouterModule
   ], providers: [
     CustomerService,
+    CustomerServiceConsulta
   ]
 })
 export class ClientesModule { }
