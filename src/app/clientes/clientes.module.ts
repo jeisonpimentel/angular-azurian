@@ -14,6 +14,8 @@ import { FormularioUsuarioComponent } from './pages/usuario-formulario/formulari
 import { ConsultaVeterinariaComponent } from './pages/consulta-veterinaria/consulta-veterinaria/consulta-veterinaria.component';
 import { ListadoConsultaVeterinariaComponent } from './pages/consulta-veterinaria/listado-consulta-veterinaria/listado-consulta-veterinaria.component';
 import { CustomerServiceConsulta } from './services/costumerserviceconsulta';
+import { CartillaMedicaComponent } from './pages/cartilla-medica/cartilla-medica.component';
+import { CustomerServiceCartilla } from './services/customerservicecartilla';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { CustomerServiceConsulta } from './services/costumerserviceconsulta';
     BuscarClienteComponent,
     FormularioUsuarioComponent,
     ConsultaVeterinariaComponent,
-    ListadoConsultaVeterinariaComponent
+    ListadoConsultaVeterinariaComponent,
+    CartillaMedicaComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +38,8 @@ import { CustomerServiceConsulta } from './services/costumerserviceconsulta';
     RouterModule
   ], providers: [
     CustomerService,
-    CustomerServiceConsulta
+    CustomerServiceConsulta,
+    CustomerServiceCartilla
   ]
 })
 export class ClientesModule { }

@@ -7,6 +7,7 @@ import { FormularioComponent } from './pages/formulario/formulario.component';
 import { BuscarClienteComponent } from './pages/buscar-cliente/buscar-cliente.component';
 import { FormularioUsuarioComponent } from './pages/usuario-formulario/formulario-usuario/formulario-usuario.component';
 import { ConsultaVeterinariaComponent } from './pages/consulta-veterinaria/consulta-veterinaria/consulta-veterinaria.component';
+import { CartillaMedicaComponent } from './pages/cartilla-medica/cartilla-medica.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'consulta-veterinaria',
         component: ConsultaVeterinariaComponent
+      },
+      {
+        path: 'cartilla-medica',
+        component: CartillaMedicaComponent
       },
       // { 
       //   path: '**',

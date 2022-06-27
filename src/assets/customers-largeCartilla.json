@@ -1,0 +1,50 @@
+{
+    "data":  [
+        {
+            "id": 100,
+            "mascota": "Broqui",
+            "fechaConsulta": "22/05/2022",
+            "motivoConsulta": "Consulta sobre mi mascota",
+            "diagnostico": "Fiebre y malestar",
+            "medicamento": "Inyecciones y pastillas",
+            "proximoControl": "22/06/2022"
+        },
+        {
+            "id": 101,
+            "mascota": "Broqui",
+            "fechaConsulta": "22/05/2022",
+            "motivoConsulta": "Consulta sobre mi mascota",
+            "diagnostico": "Fiebre y malestar",
+            "medicamento": "Inyecciones y pastillas",
+            "proximoControl": "22/06/2022"
+        },
+        {
+            "id": 102,
+            "mascota": "Broqui",
+            "fechaConsulta": "22/05/2022",
+            "motivoConsulta": "Consulta sobre mi mascota",
+            "diagnostico": "Fiebre y malestar",
+            "medicamento": "Inyecciones y pastillas",
+            "proximoControl": "22/06/2022"
+        },
+        {
+            "id": 103,
+            "mascota": "Broqui",
+            "fechaConsulta": "22/05/2022",
+            "motivoConsulta": "Consulta sobre mi mascota",
+            "diagnostico": "Fiebre y malestar",
+            "medicamento": "Inyecciones y pastillas",
+            "proximoControl": "22/06/2022"
+        },
+        {
+            "id": 104,
+            "mascota": "Broqui",
+            "fechaConsulta": "22/05/2022",
+            "motivoConsulta": "Consulta sobre mi mascota",
+            "diagnostico": "Fiebre y malestar",
+            "medicamento": "Inyecciones y pastillas",
+            "proximoControl": "22/06/2022"
+        }
+    ]
+}
+
