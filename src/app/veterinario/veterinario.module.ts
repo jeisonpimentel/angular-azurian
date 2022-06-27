@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 import { MaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -17,6 +17,7 @@ import { VeterinarioRoutingModule } from './veterinario-routing.module';
     FlexLayoutModule,
     RouterModule,
     VeterinarioRoutingModule,
+    ReactiveFormsModule
   ], exports:[
     RouterModule
   ]
